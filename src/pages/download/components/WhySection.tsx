@@ -4,12 +4,12 @@ import { responsive } from '../responsive';
 export function WhySection() {
   return (
     <>
-      <section className={['relative h-[736px] w-full overflow-hidden', responsive.showOnlyDesktop].join(' ')}>
-        <img alt="" className="absolute inset-0 h-full w-full object-cover" src={assets.why.bg} />
+      <section className={['relative aspect-[2/1] w-full overflow-hidden', responsive.showOnlyDesktop].join(' ')}>
+        <img alt="" className="absolute  inset-0 h-full w-full object-cover" src={assets.why.bg} />
         <div className="absolute inset-0 bg-black/50" />
 
         <div className="relative mx-auto h-full max-w-[1200px] px-6">
-          <div className="pt-[120px]">
+          <div className="pt-[181px] pl-30">
             <h2 className="max-w-[560px] text-[38px] font-bold leading-[1.25] text-white sm:text-[50px]">
               <span className="block">왜 우리는 알면서도</span>
               <span className="block">계속 거북이가 되어갈까요?</span>
