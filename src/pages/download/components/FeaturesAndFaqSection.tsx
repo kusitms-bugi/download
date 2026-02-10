@@ -77,7 +77,7 @@ export function FeaturesAndFaqSection() {
         </div>
       </section>
 
-      <section className={['bg-[#f9f8f7] py-[100px]', responsive.showOnlyTablet].join(' ')}>
+      <section className={['bg-[#f9f8f7] py-[40px]', responsive.showOnlyTablet].join(' ')}>
         <div className="mx-auto max-w-[720px] px-4">
           <div className="grid grid-cols-2 gap-5">
             <div className="flex h-[200px] flex-col gap-4 rounded-[20px] bg-white p-6">

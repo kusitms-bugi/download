@@ -135,7 +135,7 @@ export function KeypointsSection() {
         </div>
       </section>
 
-      <section className={['bg-[#f9f8f7] py-[100px]', responsive.showOnlyTablet].join(' ')}>
+      <section className={['bg-white py-[100px]', responsive.showOnlyTablet].join(' ')}>
         <div className="mx-auto flex max-w-[720px] flex-col gap-[120px] px-4">
           <div className="flex flex-col gap-9">
             <img

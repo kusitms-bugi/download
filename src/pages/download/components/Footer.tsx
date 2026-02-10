@@ -18,12 +18,15 @@ export function Footer() {
                 <div>사업자 번호: 000-00-00000</div>
                 <div>문의 메일: geoboogirin@gmail.com</div>
               </div>
-              <div className="mt-6">
-                <img alt="" className="h-6 w-auto" src={assets.footer.social} />
-              </div>
+              <div className="mt-6 flex gap-6">
+                <img alt="" className="h-5 w-auto" src={Instagram} />
+                <img alt="" className="h-5 w-auto" src={LinkedIn} />
+                <img alt="" className="h-5 w-auto" src={X} />
+                <img alt="" className="h-5 w-auto" src={Thread} />
+            </div>
             </div>
 
-            <div className="flex items-center gap-[15px] text-[14px] font-medium text-[#a8a7a4]">
+            <div className="flex  gap-[15px] text-[14px] font-medium text-[#a8a7a4]">
               <a href="#">운영정책</a>
               <div className="h-4 w-px bg-[#e3e1df]" />
               <a href="#">개인정보 처리방침</a>

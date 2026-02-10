@@ -45,7 +45,7 @@ export function Hero() {
         </div>
       </section>
 
-      <section className={['bg-white pt-[68px]', responsive.showOnlyTablet].join(' ')}>
+      <section className={['bg-[linear-gradient(180deg,#FFFFFF_0%,#FFFFFF_50%,#FFE28A_75%,#FFBF00_100%)] pt-[68px]', responsive.showOnlyTablet].join(' ')}>
         <div className="mx-auto flex max-w-[720px] flex-col items-center gap-[40px] px-4 text-center">
           <div className="flex flex-col items-center gap-3">
             <img alt="" className="size-20" src={assets.hero.appLogo} />
@@ -78,7 +78,7 @@ export function Hero() {
           </div>
         </div>
 
-        <div className="mt-[40px] bg-black">
+        <div className=" ">
           <div className="mx-auto max-w-[760px] px-4 pb-[24px] pt-[24px]">
             <img alt="거부기린 서비스 화면" className="w-full" src={assets.hero.tabletMock} />
           </div>
