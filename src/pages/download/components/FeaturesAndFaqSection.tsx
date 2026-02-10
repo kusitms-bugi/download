@@ -105,7 +105,7 @@ export function FeaturesAndFaqSection() {
             </div>
 
             <div className="flex h-[200px] flex-col gap-4 rounded-[20px] bg-white p-6">
-              <img alt="" className="size-[44px]" src={assets.features.iconDashboard} />
+              <img alt="" className="size-[44px]" src={DashboardIcon} />
               <div className="flex flex-col gap-3">
                 <div className="text-[20px] font-bold leading-[1.5] text-[#2c2c2c]">데이터로 보는 대시보드</div>
                 <div className="text-[15px] font-medium leading-[1.5] text-[#7e7e7b]">
@@ -115,7 +115,7 @@ export function FeaturesAndFaqSection() {
             </div>
 
             <div className="flex h-[200px] flex-col gap-4 rounded-[20px] bg-white p-6">
-              <img alt="" className="size-[44px]" src={assets.features.iconAlert} />
+              <img alt="" className="size-[44px]" src={NotificationIcon} />
               <div className="flex flex-col gap-3">
                 <div className="text-[20px] font-bold leading-[1.5] text-[#2c2c2c]">스마트 알림</div>
                 <div className="text-[15px] font-medium leading-[1.5] text-[#7e7e7b]">
@@ -131,7 +131,7 @@ export function FeaturesAndFaqSection() {
         </div>
       </section>
 
-      <section className={['bg-[#f9f8f7] py-[100px]', responsive.showOnlyMobile].join(' ')}>
+      <section className={['bg-[#f9f8f7] py-[40px]', responsive.showOnlyMobile].join(' ')}>
         <div className="mx-auto max-w-[320px] px-4">
           <div className="flex flex-col gap-5">
             <div className="flex h-[200px] flex-col gap-4 rounded-[20px] bg-white p-6">

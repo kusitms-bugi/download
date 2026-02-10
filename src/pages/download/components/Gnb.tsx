@@ -72,7 +72,7 @@ export function Gnb() {
         <div className="mx-auto flex h-[63px] max-w-[800px] items-center justify-between px-4">
           <a className="flex items-center gap-2" href="#">
             <img alt="거부기린" className="size-6" src={Logo} />
-            <img alt="" className="h-[15px] w-auto" src={assets.gnb.logoType} />
+            <img alt="" className="h-[15px] w-auto" src={TextLogo} />
           </a>
           <button
             aria-controls="navigation-drawer"
@@ -90,8 +90,8 @@ export function Gnb() {
       <header className={['sticky top-0 z-50 border-b border-[#efeeed] bg-white', responsive.showOnlyMobile].join(' ')}>
         <div className="mx-auto flex h-[63px] max-w-[320px] items-center justify-between px-4">
           <a className="flex items-center gap-2" href="#">
-            <img alt="거부기린" className="size-6" src={assets.gnb.logoMark} />
-            <img alt="" className="h-[15px] w-auto" src={assets.gnb.logoType} />
+            <img alt="거부기린" className="size-6" src={Logo} />
+            <img alt="" className="h-[15px] w-auto" src={TextLogo} />
           </a>
           <button
             aria-controls="navigation-drawer"

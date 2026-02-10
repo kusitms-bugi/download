@@ -1,5 +1,9 @@
 import { assets } from '../assets';
 import { responsive } from '../responsive';
+import Instagram from '../../../assets/Instagram_Icon.png';
+import LinkedIn from '../../../assets/Linkedin_Icon.png';
+import X from '../../../assets/Social_Icon.png';
+import Thread from '../../../assets/Thread_Icon.png';
 
 export function Footer() {
   return (
@@ -43,8 +47,11 @@ export function Footer() {
               <div>사업자 번호: 000-00-00000</div>
               <div>문의 메일: geoboogirin@gmail.com</div>
             </div>
-            <div className="mt-6">
-              <img alt="" className="h-5 w-auto" src={assets.footer.socialMobile} />
+            <div className="mt-6 flex gap-6">
+              <img alt="" className="h-5 w-auto" src={Instagram} />
+              <img alt="" className="h-5 w-auto" src={LinkedIn} />
+              <img alt="" className="h-5 w-auto" src={X} />
+              <img alt="" className="h-5 w-auto" src={Thread} />
             </div>
 
             <div className="mt-[64px] flex items-center justify-between text-[14px] font-medium text-[#a8a7a4]">
@@ -55,6 +62,7 @@ export function Footer() {
               <a href="#">서비스 이용약관</a>
             </div>
           </div>
+
 
           <div className="border-t border-[#efeeed] py-6 text-[10px] font-medium leading-[1.5] text-[#a8a7a4]">
             ⓒ 2026 Geoboogirin. All rights reserved.

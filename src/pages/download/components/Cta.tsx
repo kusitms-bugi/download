@@ -46,17 +46,19 @@ export function Cta() {
         </div>
       </section>
 
-      <section className={['relative grid h-[297px] place-items-center', responsive.showOnlyMobile].join(' ')}>
+      <section className={['relative h-[297px]', responsive.showOnlyMobile].join(' ')}>
         <img alt="" className="absolute inset-0 h-full w-full object-cover" src={assets.cta.mobileBg} />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_10%_10%,rgba(255,255,255,0.95),rgba(255,255,255,0)_55%)]" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_-10%,rgba(255,255,255,0.9),rgba(255,255,255,0)_60%)]" />
 
-        <div className="relative flex w-full flex-col items-center px-4 text-center">
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="relative flex w-full flex-col items-center px-4 text-center">
           <div className="text-[22px] font-bold leading-[1.5] text-[#212121]">
             <div>세상 모든 거북목들이</div>
             <div>기린이 될 때까지</div>
           </div>
           <div className="mt-[10px] text-[14px] font-medium leading-[1.5] text-[#6a6966]">거부기린이 궁금하다면?</div>
+          </div>
         </div>
       </section>
     </>
