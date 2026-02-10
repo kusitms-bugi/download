@@ -8,6 +8,12 @@ import TextLogo from "../../../assets/Text_Image.png";
 
 export function Gnb() {
   const navItems = ["다운로드", "업데이트 소식", "요금제", "블로그"] as const;
+  const navLinks: Partial<
+    Record<(typeof navItems)[number], { href: string; external?: boolean }>
+  > = {
+    블로그: { href: "https://blog.bugi.co.kr/", external: true },
+  };
+  const trialHref = "http://demo.bugi.co.kr/";
   const [isDrawerVisible, setIsDrawerVisible] = useState(false);
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
@@ -53,25 +59,33 @@ export function Gnb() {
           </a>
 
           <nav className="hidden items-center gap-3 text-[15px] font-medium text-[#7e7e7b] md:flex">
-            {navItems.map((label) => (
-              <a
-                className="rounded-full px-3 py-2 hover:bg-[#f9f8f7]"
-                href="#"
-                key={label}
-              >
-                {label}
-              </a>
-            ))}
+            {navItems.map((label) => {
+              const link = navLinks[label];
+              const href = link?.href ?? "#";
+              const external = Boolean(link?.external);
+              return (
+                <a
+                  className="rounded-full px-3 py-2 hover:bg-[#f9f8f7]"
+                  href={href}
+                  key={label}
+                  {...(external ? { rel: "noreferrer", target: "_blank" } : {})}
+                >
+                  {label}
+                </a>
+              );
+            })}
           </nav>
 
           <div className="flex items-center gap-4">
             <ModeToggle />
-            <button
-              className="rounded-full bg-[#ffcb31] px-3 py-1.5 text-[14px] font-medium text-black"
-              type="button"
+            <a
+              className="rounded-full bg-[#ffcb31] px-3 py-1.5 text-[14px] font-medium text-black cursor-pointer"
+              href={trialHref}
+              rel="noreferrer"
+              target="_blank"
             >
               거부기린 실행
-            </button>
+            </a>
           </div>
         </div>
       </header>
@@ -158,16 +172,8 @@ export function Gnb() {
               <div className="flex w-full flex-col gap-8">
                 <div className="flex w-full items-center justify-between">
                   <a className="flex items-center gap-2" href="#">
-                    <img
-                      alt="거부기린"
-                      className="size-6"
-                      src={assets.gnb.logoMark}
-                    />
-                    <img
-                      alt=""
-                      className="h-[15px] w-auto"
-                      src={assets.gnb.logoType}
-                    />
+                    <img alt="거부기린" className="size-6" src={Logo} />
+                    <img alt="" className="h-[15px] w-auto" src={TextLogo} />
                   </a>
                   <button
                     aria-label="메뉴 닫기"
@@ -180,16 +186,24 @@ export function Gnb() {
                 </div>
 
                 <nav className="flex w-full flex-col gap-1">
-                  {navItems.map((label) => (
-                    <a
-                      className="py-2 text-[16px] font-medium leading-[1.5] text-[#7e7e7b]"
-                      href="#"
-                      key={label}
-                      onClick={closeDrawer}
-                    >
-                      {label}
-                    </a>
-                  ))}
+                  {navItems.map((label) => {
+                    const link = navLinks[label];
+                    const href = link?.href ?? "#";
+                    const external = Boolean(link?.external);
+                    return (
+                      <a
+                        className="py-2 text-[16px] font-medium leading-[1.5] text-[#7e7e7b]"
+                        href={href}
+                        key={label}
+                        onClick={closeDrawer}
+                        {...(external
+                          ? { rel: "noreferrer", target: "_blank" }
+                          : {})}
+                      >
+                        {label}
+                      </a>
+                    );
+                  })}
                 </nav>
               </div>
 

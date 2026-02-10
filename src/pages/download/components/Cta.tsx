@@ -2,6 +2,8 @@ import { assets } from "../assets";
 import { responsive } from "../responsive";
 
 export function Cta() {
+  const trialHref = "http://demo.bugi.co.kr/";
+
   return (
     <>
       <section
@@ -28,12 +30,14 @@ export function Cta() {
             </div>
           </div>
 
-          <button
-            className="rounded-full bg-black px-7 py-4 text-[18px] font-medium text-white sm:text-[20px]"
-            type="button"
+          <a
+            className="rounded-full bg-black px-7 py-4 text-[18px] font-medium text-white sm:text-[20px] cursor-pointer"
+            href={trialHref}
+            rel="noreferrer"
+            target="_blank"
           >
             다운로드 없이 체험해보기
-          </button>
+          </a>
         </div>
       </section>
 
@@ -59,12 +63,14 @@ export function Cta() {
                 거부기린이 궁금하다면?
               </div>
             </div>
-            <button
-              className="rounded-full bg-black px-5 py-2 text-[14px] font-medium text-white"
-              type="button"
+            <a
+              className="rounded-full bg-black px-5 py-2 text-[14px] font-medium text-white cursor-pointer"
+              href={trialHref}
+              rel="noreferrer"
+              target="_blank"
             >
               다운로드 없이 체험해보기
-            </button>
+            </a>
           </div>
         </div>
       </section>
