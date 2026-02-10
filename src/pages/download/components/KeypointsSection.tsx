@@ -30,7 +30,8 @@ function Keypoint({
     <div
       className={[
         'flex flex-col items-start gap-[40px] lg:flex-row lg:gap-[72px]',
-        reverse ? 'lg:flex-row-reverse lg:justify-end' : '',
+        
+        reverse ? 'lg:flex-row-reverse lg:justify-start' : '',
       ].join(' ')}
     >
       <div className="shrink-0">
@@ -64,7 +65,7 @@ function Keypoint({
 export function KeypointsSection() {
   return (
     <>
-      <section className={['bg-[#f9f8f7] py-[160px]', responsive.showOnlyDesktop].join(' ')}>
+      <section className={['bg-[#ffffff] py-[160px]', responsive.showOnlyDesktop].join(' ')}>
         <div className="mx-auto flex max-w-[1320px] flex-col gap-[160px] px-6">
           <Keypoint
             descLines={[
@@ -81,7 +82,7 @@ export function KeypointsSection() {
             alignRight
             descLines={['바른 자세를 유지할수록 캐릭터는 더 빨리 달리고', '더 빨리 레벨업해서 보상을 받을 수 있어요.']}
             imageAlt="Keypoint 2"
-            imageClassName="max-w-[635px]"
+            imageClassName="!max-w-[635px]"
             imageSrc={assets.keypoints.kp2}
             label="Keypoint 2"
             reverse

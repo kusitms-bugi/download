@@ -3,6 +3,9 @@ import { useCallback, useEffect, useState } from 'react';
 import { assets } from '../assets';
 import { responsive } from '../responsive';
 import { ModeToggle } from './ModeToggle';
+import Logo from '../../../assets/Logo_Image.png';
+import TextLogo from '../../../assets/Text_Image.png';
+
 
 export function Gnb() {
   const navItems = ['다운로드', '업데이트 소식', '요금제', '블로그'] as const;
@@ -41,8 +44,8 @@ export function Gnb() {
       <header className={['sticky top-0 z-50 border-b border-[#efeeed] bg-white', responsive.showOnlyDesktop].join(' ')}>
         <div className="mx-auto flex h-[63px] max-w-[1200px] items-center justify-between px-6">
           <a className="flex items-center gap-2" href="#">
-            <img alt="거부기린" className="size-6" src={assets.gnb.logoMark} />
-            <img alt="" className="h-[15px] w-auto" src={assets.gnb.logoType} />
+            <img alt="거부기린" className="size-6" src={Logo} />
+            <img alt="" className="h-[15px] w-auto" src={TextLogo} />
           </a>
 
           <nav className="hidden items-center gap-3 text-[15px] font-medium text-[#7e7e7b] md:flex">
@@ -68,7 +71,7 @@ export function Gnb() {
       <header className={['sticky top-0 z-50 border-b border-[#efeeed] bg-white', responsive.showOnlyTablet].join(' ')}>
         <div className="mx-auto flex h-[63px] max-w-[800px] items-center justify-between px-4">
           <a className="flex items-center gap-2" href="#">
-            <img alt="거부기린" className="size-6" src={assets.gnb.logoMark} />
+            <img alt="거부기린" className="size-6" src={Logo} />
             <img alt="" className="h-[15px] w-auto" src={assets.gnb.logoType} />
           </a>
           <button
