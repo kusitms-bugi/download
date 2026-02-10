@@ -1,4 +1,4 @@
-import DownloadPage from './pages/DownloadPage';
+import DownloadPage from "./pages/DownloadPage";
 
 function App() {
   return <DownloadPage />;

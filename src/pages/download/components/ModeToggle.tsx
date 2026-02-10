@@ -1,4 +1,4 @@
-import { assets } from '../assets';
+import { assets } from "../assets";
 
 export function ModeToggle() {
   return (
@@ -18,4 +18,3 @@ export function ModeToggle() {
     </button>
   );
 }
-

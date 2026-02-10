@@ -1,14 +1,13 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from "react";
 
-import { assets } from '../assets';
-import { responsive } from '../responsive';
-import { ModeToggle } from './ModeToggle';
-import Logo from '../../../assets/Logo_Image.png';
-import TextLogo from '../../../assets/Text_Image.png';
-
+import { assets } from "../assets";
+import { responsive } from "../responsive";
+import { ModeToggle } from "./ModeToggle";
+import Logo from "../../../assets/Logo_Image.png";
+import TextLogo from "../../../assets/Text_Image.png";
 
 export function Gnb() {
-  const navItems = ['다운로드', '업데이트 소식', '요금제', '블로그'] as const;
+  const navItems = ["다운로드", "업데이트 소식", "요금제", "블로그"] as const;
   const [isDrawerVisible, setIsDrawerVisible] = useState(false);
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
@@ -26,22 +25,27 @@ export function Gnb() {
     if (!isDrawerVisible) return;
 
     const originalOverflow = document.body.style.overflow;
-    document.body.style.overflow = 'hidden';
+    document.body.style.overflow = "hidden";
 
     const onKeyDown = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') closeDrawer();
+      if (event.key === "Escape") closeDrawer();
     };
-    window.addEventListener('keydown', onKeyDown);
+    window.addEventListener("keydown", onKeyDown);
 
     return () => {
-      window.removeEventListener('keydown', onKeyDown);
+      window.removeEventListener("keydown", onKeyDown);
       document.body.style.overflow = originalOverflow;
     };
   }, [closeDrawer, isDrawerVisible]);
 
   return (
     <>
-      <header className={['sticky top-0 z-50 border-b border-[#efeeed] bg-white', responsive.showOnlyDesktop].join(' ')}>
+      <header
+        className={[
+          "sticky top-0 z-50 border-b border-[#efeeed] bg-white",
+          responsive.showOnlyDesktop,
+        ].join(" ")}
+      >
         <div className="mx-auto flex h-[63px] max-w-[1200px] items-center justify-between px-6">
           <a className="flex items-center gap-2" href="#">
             <img alt="거부기린" className="size-6" src={Logo} />
@@ -50,7 +54,11 @@ export function Gnb() {
 
           <nav className="hidden items-center gap-3 text-[15px] font-medium text-[#7e7e7b] md:flex">
             {navItems.map((label) => (
-              <a className="rounded-full px-3 py-2 hover:bg-[#f9f8f7]" href="#" key={label}>
+              <a
+                className="rounded-full px-3 py-2 hover:bg-[#f9f8f7]"
+                href="#"
+                key={label}
+              >
                 {label}
               </a>
             ))}
@@ -68,7 +76,12 @@ export function Gnb() {
         </div>
       </header>
 
-      <header className={['sticky top-0 z-50 border-b border-[#efeeed] bg-white', responsive.showOnlyTablet].join(' ')}>
+      <header
+        className={[
+          "sticky top-0 z-50 border-b border-[#efeeed] bg-white",
+          responsive.showOnlyTablet,
+        ].join(" ")}
+      >
         <div className="mx-auto flex h-[63px] max-w-[800px] items-center justify-between px-4">
           <a className="flex items-center gap-2" href="#">
             <img alt="거부기린" className="size-6" src={Logo} />
@@ -82,12 +95,21 @@ export function Gnb() {
             onClick={openDrawer}
             type="button"
           >
-            <img alt="" className="h-[33px] w-6" src={assets.gnb.iconMenuTablet} />
+            <img
+              alt=""
+              className="h-[33px] w-6"
+              src={assets.gnb.iconMenuTablet}
+            />
           </button>
         </div>
       </header>
 
-      <header className={['sticky top-0 z-50 border-b border-[#efeeed] bg-white', responsive.showOnlyMobile].join(' ')}>
+      <header
+        className={[
+          "sticky top-0 z-50 border-b border-[#efeeed] bg-white",
+          responsive.showOnlyMobile,
+        ].join(" ")}
+      >
         <div className="mx-auto flex h-[63px] max-w-[320px] items-center justify-between px-4">
           <a className="flex items-center gap-2" href="#">
             <img alt="거부기린" className="size-6" src={Logo} />
@@ -101,7 +123,11 @@ export function Gnb() {
             onClick={openDrawer}
             type="button"
           >
-            <img alt="" className="h-[33px] w-6" src={assets.gnb.iconMenuMobile} />
+            <img
+              alt=""
+              className="h-[33px] w-6"
+              src={assets.gnb.iconMenuMobile}
+            />
           </button>
         </div>
       </header>
@@ -111,9 +137,9 @@ export function Gnb() {
           <button
             aria-label="메뉴 닫기"
             className={[
-              'absolute inset-0 bg-[rgba(0,0,0,0.4)] transition-opacity duration-200 ease-out',
-              isDrawerOpen ? 'opacity-80' : 'opacity-0',
-            ].join(' ')}
+              "absolute inset-0 bg-[rgba(0,0,0,0.4)] transition-opacity duration-200 ease-out",
+              isDrawerOpen ? "opacity-80" : "opacity-0",
+            ].join(" ")}
             onClick={closeDrawer}
             type="button"
           />
@@ -121,10 +147,10 @@ export function Gnb() {
           <aside
             aria-modal="true"
             className={[
-              'absolute inset-0 h-full w-screen bg-white pb-8 pl-4 pr-6 pt-4',
-              'transition-transform duration-300 ease-out will-change-transform',
-              isDrawerOpen ? 'translate-x-0' : 'translate-x-full',
-            ].join(' ')}
+              "absolute inset-0 h-full w-screen bg-white pb-8 pl-4 pr-6 pt-4",
+              "transition-transform duration-300 ease-out will-change-transform",
+              isDrawerOpen ? "translate-x-0" : "translate-x-full",
+            ].join(" ")}
             id="navigation-drawer"
             role="dialog"
           >
@@ -132,8 +158,16 @@ export function Gnb() {
               <div className="flex w-full flex-col gap-8">
                 <div className="flex w-full items-center justify-between">
                   <a className="flex items-center gap-2" href="#">
-                    <img alt="거부기린" className="size-6" src={assets.gnb.logoMark} />
-                    <img alt="" className="h-[15px] w-auto" src={assets.gnb.logoType} />
+                    <img
+                      alt="거부기린"
+                      className="size-6"
+                      src={assets.gnb.logoMark}
+                    />
+                    <img
+                      alt=""
+                      className="h-[15px] w-auto"
+                      src={assets.gnb.logoType}
+                    />
                   </a>
                   <button
                     aria-label="메뉴 닫기"
@@ -169,4 +203,3 @@ export function Gnb() {
     </>
   );
 }
-
