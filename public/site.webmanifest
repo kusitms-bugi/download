@@ -1,0 +1,17 @@
+{
+  "name": "거부기린",
+  "short_name": "거부기린",
+  "description": "실시간 자세 교정 데스크톱 앱 거부기린",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#f9f8f7",
+  "theme_color": "#f9f8f7",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}

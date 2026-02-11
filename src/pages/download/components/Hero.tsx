@@ -266,7 +266,7 @@ export function Hero() {
         <div className="mx-auto mt-10 w-full max-w-[1320px] px-6 pb-[96px]">
           <img
             alt="거부기린 서비스 화면"
-            className="w-full"
+            className="w-full drop-shadow-[0_18px_36px_rgba(0,0,0,0.22)]"
             src={assets.hero.mock}
           />
         </div>
@@ -311,7 +311,7 @@ export function Hero() {
           <div className="mx-auto max-w-[760px] px-4 pb-[24px] pt-[24px]">
             <img
               alt="거부기린 서비스 화면"
-              className="w-full"
+              className="w-full drop-shadow-[0_18px_36px_rgba(0,0,0,0.22)]"
               src={assets.hero.tabletMock}
             />
           </div>
@@ -357,7 +357,7 @@ export function Hero() {
           <div className="mx-auto max-w-[360px] px-4 pb-[24px] pb-[133px]">
             <img
               alt="거부기린 서비스 화면"
-              className="w-full"
+              className="w-full drop-shadow-[0_18px_36px_rgba(0,0,0,0.22)]"
               src={assets.hero.mobileMock}
             />
           </div>

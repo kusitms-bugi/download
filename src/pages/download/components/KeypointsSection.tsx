@@ -38,7 +38,7 @@ function Keypoint({
         <img
           alt={imageAlt}
           className={[
-            "w-full max-w-[800px] rounded-[16px]",
+            "w-full max-w-[800px] rounded-[16px] shadow-[0_0_15px_rgba(128,113,82,0.14)]",
             imageClassName ?? "",
           ].join(" ")}
           src={imageSrc}
@@ -103,7 +103,7 @@ export function KeypointsSection() {
               "더 빨리 레벨업해서 보상을 받을 수 있어요.",
             ]}
             imageAlt="Keypoint 2"
-            imageClassName="!max-w-[635px]"
+            imageClassName="!max-w-[635px] !shadow-none !rounded-none"
             imageSrc={assets.keypoints.kp2}
             label="Keypoint 2"
             reverse
@@ -135,7 +135,7 @@ export function KeypointsSection() {
               <div className="mt-10">
                 <img
                   alt=""
-                  className="w-[361px] max-w-full"
+                  className="w-[361px] max-w-full shadow-[0_0_15px_rgba(128,113,82,0.14)]"
                   src={assets.keypoints.kp4Notif}
                 />
               </div>
@@ -151,12 +151,12 @@ export function KeypointsSection() {
             <div className="flex shrink-0 flex-col items-center gap-6">
               <img
                 alt=""
-                className="w-[276px] max-w-full"
+                className="w-[276px] max-w-full shadow-[0_0_15px_rgba(128,113,82,0.14)]"
                 src={assets.keypoints.kp5Min}
               />
               <img
                 alt="Keypoint 5"
-                className="w-[275px] max-w-full"
+                className="w-[275px] max-w-full shadow-[0_0_15px_rgba(128,113,82,0.14)]"
                 src={assets.keypoints.kp5Med}
               />
             </div>
@@ -207,7 +207,7 @@ export function KeypointsSection() {
           <div className="flex flex-col gap-9">
             <img
               alt="Keypoint 2"
-              className="w-full rounded-[16px]"
+              className="w-full"
               src={assets.keypoints.tabletKp2}
             />
             <div className="flex flex-col gap-3">
@@ -267,7 +267,7 @@ export function KeypointsSection() {
               <div className="mt-4">
                 <img
                   alt=""
-                  className="w-full max-w-[360px]"
+                  className="w-full max-w-[360px] shadow-[0_0_15px_rgba(128,113,82,0.14)]"
                   src={assets.keypoints.tabletKp4Notif}
                 />
               </div>
@@ -278,12 +278,12 @@ export function KeypointsSection() {
             <div className="relative h-[680px] w-full">
               <img
                 alt=""
-                className="absolute left-0 top-0 w-[361px] max-w-full"
+                className="absolute left-0 top-0 w-[361px] max-w-full shadow-[0_0_15px_rgba(128,113,82,0.14)]"
                 src={assets.keypoints.tabletKp5Min}
               />
               <img
                 alt="Keypoint 5"
-                className="absolute bottom-0 left-0 w-[353px] max-w-full"
+                className="absolute bottom-0 left-0 w-[353px] max-w-full shadow-[0_0_15px_rgba(128,113,82,0.14)]"
                 src={assets.keypoints.tabletKp5Med}
               />
             </div>
@@ -332,7 +332,7 @@ export function KeypointsSection() {
           <div className="flex flex-col gap-9">
             <img
               alt="Keypoint 2"
-              className="w-full rounded-[16px]"
+              className="w-full"
               src={assets.keypoints.mobileKp2}
             />
             <div className="flex flex-col gap-3">
@@ -392,7 +392,7 @@ export function KeypointsSection() {
               <div className="mt-4">
                 <img
                   alt=""
-                  className="w-full max-w-[144px]"
+                  className="w-full max-w-[144px] shadow-[0_0_15px_rgba(128,113,82,0.14)]"
                   src={assets.keypoints.mobileKp4Notif}
                 />
               </div>
@@ -403,12 +403,12 @@ export function KeypointsSection() {
             <div className="relative h-[254px] w-full">
               <img
                 alt=""
-                className="absolute top-0 w-[144px]"
+                className="absolute top-0 w-[144px] shadow-[0_0_15px_rgba(128,113,82,0.14)]"
                 src={assets.keypoints.mobileKp5Min}
               />
               <img
                 alt="Keypoint 5"
-                className="absolute top-[49px] w-[144px] "
+                className="absolute top-[49px] w-[144px] shadow-[0_0_15px_rgba(128,113,82,0.14)]"
                 src={assets.keypoints.mobileKp5Med}
               />
             </div>
