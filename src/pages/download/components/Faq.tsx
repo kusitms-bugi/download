@@ -50,9 +50,7 @@ export function FaqDesktop() {
     [],
   );
 
-  const [openIndexes, setOpenIndexes] = useState<Set<number>>(
-    () => new Set(items.map((_, i) => i)),
-  );
+  const [openIndexes, setOpenIndexes] = useState<Set<number>>(() => new Set());
 
   return (
     <div className="rounded-[20px] bg-white p-10">
@@ -157,7 +155,7 @@ export function FaqTablet() {
     [],
   );
 
-  const [openIndex, setOpenIndex] = useState<number>(2);
+  const [openIndex, setOpenIndex] = useState<number>(-1);
 
   return (
     <div className="rounded-[20px] bg-white px-5 py-10">
@@ -256,7 +254,7 @@ export function FaqMobile() {
     [],
   );
 
-  const [openIndex, setOpenIndex] = useState<number>(2);
+  const [openIndex, setOpenIndex] = useState<number>(-1);
 
   return (
     <div className="rounded-[20px] bg-white py-5">
