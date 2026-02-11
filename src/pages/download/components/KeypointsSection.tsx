@@ -166,14 +166,13 @@ export function KeypointsSection() {
                   Keypoint 5
                 </div>
                 <div className="text-[28px] font-bold leading-[1.2] text-[#212121] sm:text-[32px] sm:leading-[1.6]">
-                  <div>나의 성장을 확인하는</div>
-                  <div>대시보드</div>
+                  <div>사이즈 조절 가능한</div>
+                  <div>스마트 위젯</div>
                 </div>
               </div>
               <div className="text-[18px] font-medium leading-[1.6] text-[#7e7e7b] sm:text-[20px]">
-                <div>매일의 작은 변화가 모이는 공간</div>
-                <div>오늘의 리포트, 거북목 추이, 자세 개선 팁을</div>
-                <div>한 눈에 파악 가능해요.</div>
+                <div>위젯 피드백을 통해 방해 없이 작업하면서서</div>
+                <div>바른 자세를 유지할 수 있도록 도와줘요.</div>
               </div>
             </div>
           </div>
@@ -293,13 +292,12 @@ export function KeypointsSection() {
                 Keypoint 5
               </div>
               <div className="text-[22px] font-bold leading-[1.5] text-[#212121]">
-                <div>나의 성장을 확인하는</div>
-                <div>대시보드</div>
+                <div>사이즈 조절 가능한</div>
+                <div>스마트 위젯</div>
               </div>
               <div className="text-[12px] font-medium leading-[1.5] text-[#7e7e7b]">
-                <div>매일의 작은 변화가 모이는 공간</div>
-                <div>오늘의 리포트, 거북목 추이, 자세 개선 팁을</div>
-                <div>한 눈에 파악 가능해요.</div>
+                <div>위젯 피드백을 통해 방해 없이 작업하면서서</div>
+                <div>바른 자세를 유지할 수 있도록 도와줘요.</div>
               </div>
             </div>
           </div>
@@ -394,7 +392,7 @@ export function KeypointsSection() {
               <div className="mt-4">
                 <img
                   alt=""
-                  className="w-full max-w-[288px]"
+                  className="w-full max-w-[144px]"
                   src={assets.keypoints.mobileKp4Notif}
                 />
               </div>
@@ -402,15 +400,15 @@ export function KeypointsSection() {
           </div>
 
           <div className="flex flex-col gap-9">
-            <div className="relative h-[533px] w-full">
+            <div className="relative h-[254px] w-full">
               <img
                 alt=""
-                className="absolute left-1/2 top-0 w-[288px] -translate-x-1/2"
+                className="absolute top-0 w-[144px]"
                 src={assets.keypoints.mobileKp5Min}
               />
               <img
                 alt="Keypoint 5"
-                className="absolute left-1/2 top-[102px] w-[288px] -translate-x-1/2"
+                className="absolute top-[49px] w-[144px] "
                 src={assets.keypoints.mobileKp5Med}
               />
             </div>
@@ -419,13 +417,12 @@ export function KeypointsSection() {
                 Keypoint 5
               </div>
               <div className="text-[22px] font-bold leading-[1.5] text-[#212121]">
-                <div>나의 성장을 확인하는</div>
-                <div>대시보드</div>
+                <div>사이즈 조절 가능한</div>
+                <div>스마트 위젯</div>
               </div>
               <div className="text-[12px] font-medium leading-[1.5] text-[#7e7e7b]">
-                <div>매일의 작은 변화가 모이는 공간</div>
-                <div>오늘의 리포트, 거북목 추이, 자세 개선 팁을</div>
-                <div>한 눈에 파악 가능해요.</div>
+                <div>위젯 피드백을 통해 방해 없이 작업하면서서</div>
+                <div>바른 자세를 유지할 수 있도록 도와줘요.</div>
               </div>
             </div>
           </div>

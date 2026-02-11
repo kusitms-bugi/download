@@ -161,12 +161,12 @@ export function Gnb() {
                     <img
                       alt="거부기린"
                       className="size-6"
-                      src={assets.gnb.logoMark}
+                      src={Logo}
                     />
                     <img
                       alt=""
                       className="h-[15px] w-auto"
-                      src={assets.gnb.logoType}
+                      src={TextLogo}
                     />
                   </a>
                   <button

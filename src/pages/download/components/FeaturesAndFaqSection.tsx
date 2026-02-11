@@ -3,6 +3,7 @@ import { useMemo } from "react";
 import { assets } from "../assets";
 import { responsive } from "../responsive";
 import { FaqDesktop, FaqMobile, FaqTablet } from "./Faq";
+import ChairMan from '../../../assets/icon-park-outline_seat.png';
 import DashboardIcon from "../../../assets/Dashboadr_Icon.png";
 import NotificationIcon from "../../../assets/Notification_Icon.png";
 
@@ -42,7 +43,7 @@ export function FeaturesAndFaqSection() {
         title: "바른 자세 분석",
         description:
           "창 전환이나 작업 방해 없이 어디서든 웹캠을 통해 실시간으로 자세 분석이 가능해요.",
-        icon: assets.features.iconSeat,
+        icon: ChairMan,
         iconIsCircleBg: true,
       },
       {
@@ -98,7 +99,7 @@ export function FeaturesAndFaqSection() {
                 <img
                   alt=""
                   className="h-[29px] w-[29px]"
-                  src={assets.features.iconSeat}
+                  src={ChairMan}
                 />
               </div>
               <div className="flex flex-col gap-3">
@@ -176,7 +177,7 @@ export function FeaturesAndFaqSection() {
                 <img
                   alt=""
                   className="h-[29px] w-[29px]"
-                  src={assets.features.iconSeat}
+                  src={ChairMan}
                 />
               </div>
               <div className="flex flex-col gap-3">
