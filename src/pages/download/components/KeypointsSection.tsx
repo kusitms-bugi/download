@@ -171,7 +171,7 @@ export function KeypointsSection() {
                 </div>
               </div>
               <div className="text-[18px] font-medium leading-[1.6] text-[#7e7e7b] sm:text-[20px]">
-                <div>위젯 피드백을 통해 방해 없이 작업하면서서</div>
+                <div>위젯 피드백을 통해 방해 없이 작업하면서</div>
                 <div>바른 자세를 유지할 수 있도록 도와줘요.</div>
               </div>
             </div>
@@ -296,7 +296,7 @@ export function KeypointsSection() {
                 <div>스마트 위젯</div>
               </div>
               <div className="text-[12px] font-medium leading-[1.5] text-[#7e7e7b]">
-                <div>위젯 피드백을 통해 방해 없이 작업하면서서</div>
+                <div>위젯 피드백을 통해 방해 없이 작업하면서</div>
                 <div>바른 자세를 유지할 수 있도록 도와줘요.</div>
               </div>
             </div>
@@ -421,7 +421,7 @@ export function KeypointsSection() {
                 <div>스마트 위젯</div>
               </div>
               <div className="text-[12px] font-medium leading-[1.5] text-[#7e7e7b]">
-                <div>위젯 피드백을 통해 방해 없이 작업하면서서</div>
+                <div>위젯 피드백을 통해 방해 없이 작업하면서</div>
                 <div>바른 자세를 유지할 수 있도록 도와줘요.</div>
               </div>
             </div>

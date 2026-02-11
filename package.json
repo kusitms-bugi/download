@@ -10,6 +10,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@gbgr/react": "^0.1.0",
+    "@gbgr/tokens": "^0.0.1",
+    "@gbgr/ui": "^0.0.2",
     "@tailwindcss/vite": "^4.1.18",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",

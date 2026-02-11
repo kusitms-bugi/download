@@ -1,12 +1,20 @@
 import { useCallback, useEffect, useState } from "react";
 
+import { ModeToggle } from "@gbgr/ui";
+import type { ModeToggleValue } from "@gbgr/ui";
+
 import { assets } from "../assets";
 import { responsive } from "../responsive";
-import { ModeToggle } from "./ModeToggle";
 import Logo from "../../../assets/Logo_Image.png";
 import TextLogo from "../../../assets/Text_Image.png";
 
-export function Gnb() {
+type GnbProps = {
+  modeValue: ModeToggleValue;
+  onModeValueChange: (value: ModeToggleValue) => void;
+  modeAriaLabel?: string;
+};
+
+export function Gnb({ modeValue, onModeValueChange, modeAriaLabel }: GnbProps) {
   const navItems = ["다운로드", "업데이트 소식", "요금제", "블로그"] as const;
   const navLinks: Partial<
     Record<(typeof navItems)[number], { href: string; external?: boolean }>
@@ -77,7 +85,11 @@ export function Gnb() {
           </nav>
 
           <div className="flex items-center gap-4">
-            <ModeToggle />
+            <ModeToggle
+              aria-label={modeAriaLabel}
+              onValueChange={onModeValueChange}
+              value={modeValue}
+            />
             <a
               className="rounded-full bg-[#ffcb31] px-3 py-1.5 text-[14px] font-medium text-black cursor-pointer"
               href={trialHref}
@@ -208,7 +220,11 @@ export function Gnb() {
               </div>
 
               <div className="pb-4">
-                <ModeToggle />
+                <ModeToggle
+                  aria-label={modeAriaLabel}
+                  onValueChange={onModeValueChange}
+                  value={modeValue}
+                />
               </div>
             </div>
           </aside>

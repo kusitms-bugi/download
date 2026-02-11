@@ -1,5 +1,7 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
 
+import { Button, TextField } from "@gbgr/ui";
+
 import { assets } from "../assets";
 import { responsive } from "../responsive";
 
@@ -80,11 +82,10 @@ function isLikelyEmail(value: string) {
 }
 
 type EmailFormProps = {
-  inputClassName: string;
-  buttonClassName: string;
+  className?: string;
 };
 
-function EmailForm({ inputClassName, buttonClassName }: EmailFormProps) {
+function EmailForm({ className }: EmailFormProps) {
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">(
     "idle",
@@ -128,12 +129,12 @@ function EmailForm({ inputClassName, buttonClassName }: EmailFormProps) {
   }, [email]);
 
   return (
-    <div className="flex flex-col gap-2">
-      <input
-        className={inputClassName}
+    <div className={["flex flex-col gap-2", className].filter(Boolean).join(" ")}>
+      <TextField
+        className="gbgr-text-field--compact w-full"
         inputMode="email"
         onChange={(event) => {
-          setEmail(event.target.value);
+          setEmail((event.target as HTMLInputElement).value);
           if (status !== "idle") {
             setStatus("idle");
             setMessage("");
@@ -143,14 +144,14 @@ function EmailForm({ inputClassName, buttonClassName }: EmailFormProps) {
         type="email"
         value={email}
       />
-      <button
-        className={buttonClassName}
+      <Button
+        className="w-full"
         disabled={!canSend}
-        onClick={onSend}
         type="button"
+        onPress={onSend}
       >
         {status === "sending" ? "전송 중..." : "이메일 전송"}
-      </button>
+      </Button>
       {message ? (
         <p
           className={[
@@ -296,10 +297,7 @@ export function Hero() {
           </div>
 
           <div className="w-full max-w-[360px]">
-            <EmailForm
-              buttonClassName="h-10 w-full rounded-full bg-[#ffcb31] text-[16px] font-medium text-black disabled:opacity-60"
-              inputClassName="h-10 w-full rounded-full border border-[#e3e1df] bg-white px-5 text-[16px] font-normal text-[#212121] placeholder:text-[#a8a7a4]"
-            />
+            <EmailForm />
             <p className="mt-4 text-[10px] font-medium leading-[1.5] text-[#7e7e7b]">
               <span className="block">거부기린은 PC에서만 사용 가능해요.</span>
               <span className="block">
@@ -345,10 +343,7 @@ export function Hero() {
           </div>
 
           <div className="w-full">
-            <EmailForm
-              buttonClassName="h-10 w-full rounded-full bg-[#ffcb31] text-[16px] font-medium text-black disabled:opacity-60"
-              inputClassName="h-10 w-full rounded-full border border-[#e3e1df] bg-white px-5 text-[16px] font-normal text-[#212121] placeholder:text-[#a8a7a4]"
-            />
+            <EmailForm />
             <p className="mt-4 text-[10px] font-medium leading-[1.5] text-[#7e7e7b]">
               <span className="block">거부기린은 PC에서만 사용 가능해요.</span>
               <span className="block">

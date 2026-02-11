@@ -15,7 +15,6 @@ export function WhySection() {
           className="absolute  inset-0 h-full w-full object-cover"
           src={assets.why.bg}
         />
-        <div className="absolute inset-0 bg-black/50" />
 
         <div className="relative mx-auto h-full max-w-[1200px] px-6">
           <div className="pt-[181px] pl-30">
@@ -46,7 +45,6 @@ export function WhySection() {
           className="absolute inset-0 h-full w-full object-cover"
           src={assets.why.tabletBg}
         />
-        <div className="absolute inset-0 bg-black/55" />
         <div className="relative mx-auto h-full max-w-[800px] px-10 pt-10">
           <h2 className="text-[32px] font-bold leading-[1.5] text-white">
             <span className="block">왜 우리는 알면서도</span>
@@ -71,7 +69,6 @@ export function WhySection() {
           className="absolute inset-0 h-full w-full object-cover"
           src={assets.why.mobileBg}
         />
-        <div className="absolute inset-0 bg-black/55" />
         <div className="relative mx-auto h-full max-w-[320px] px-4 pt-4">
           <h2 className="text-[18px] font-bold leading-[1.5] text-white">
             <span className="block">왜 우리는 알면서도</span>

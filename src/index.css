@@ -2,6 +2,30 @@
 
 @import "tailwindcss";
 
+:root {
+  --gbgr-page-bg: #f9f8f7;
+  --gbgr-page-surface: #ffffff;
+  --gbgr-page-text: #212121;
+  --gbgr-page-text-muted: #6a6966;
+  --gbgr-page-text-subtle: #7e7e7b;
+  --gbgr-page-border: #efeeed;
+}
+
+:root[data-theme="dark"] {
+  --gbgr-page-bg: #0b0b0b;
+  --gbgr-page-surface: #141413;
+  --gbgr-page-text: #f9f8f7;
+  --gbgr-page-text-muted: #c6c5c3;
+  --gbgr-page-text-subtle: #a8a7a4;
+  --gbgr-page-border: #2c2c2c;
+}
+
+.gbgr-text-field--compact .gbgr-text-field__control {
+  min-height: 40px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
 html,
 body {
   height: 100%;
