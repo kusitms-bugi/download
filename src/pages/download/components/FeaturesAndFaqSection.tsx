@@ -162,7 +162,7 @@ export function FeaturesAndFaqSection() {
           " ",
         )}
       >
-        <div className="mx-auto max-w-[320px] px-4">
+        <div className="mx-4 min-w-[320px]">
           <div className="flex flex-col gap-5">
             <div className="flex h-[200px] flex-col gap-4 rounded-[20px] bg-white p-6">
               <img

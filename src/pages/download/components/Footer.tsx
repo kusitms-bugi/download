@@ -21,8 +21,7 @@ export function Footer() {
               </div>
               <div className="mt-2 text-[16px] font-medium leading-[1.5] text-[#a8a7a4]">
                 <div>대표: 김윤하</div>
-                <div>사업자 번호: 000-00-00000</div>
-                <div>문의 메일: geoboogirin@gmail.com</div>
+                <div>문의 메일: gbgr32@gmail.com</div>
               </div>
               <div className="mt-6 flex gap-6">
                 <img alt="" className="h-5 w-auto" src={Instagram} />
@@ -53,15 +52,14 @@ export function Footer() {
           responsive.showOnlyMobile,
         ].join(" ")}
       >
-        <div className="mx-auto flex max-w-[320px] flex-col gap-[60px]">
+        <div className="mx-auto flex min-w-[320px] flex-col gap-[60px]">
           <div className="border-t border-black/10 pt-[60px]">
             <div className="text-[20px] font-bold leading-[1.5] text-[#181817]">
               거부기린
             </div>
             <div className="mt-2 text-[12px] font-medium leading-[1.5] text-[#a8a7a4]">
               <div>대표: 김윤하</div>
-              <div>사업자 번호: 000-00-00000</div>
-              <div>문의 메일: geoboogirin@gmail.com</div>
+              <div>문의 메일: gbgr32@gmail.com</div>
             </div>
             <div className="mt-6 flex gap-6">
               <img alt="" className="h-5 w-auto" src={Instagram} />

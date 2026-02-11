@@ -136,7 +136,7 @@ export function Gnb({ modeValue, onModeValueChange, modeAriaLabel }: GnbProps) {
           responsive.showOnlyMobile,
         ].join(" ")}
       >
-        <div className="mx-auto flex h-[63px] max-w-[320px] items-center justify-between px-4">
+        <div className="mx-auto flex h-[63px] min-w-[320px] items-center justify-between px-4">
           <a className="flex items-center gap-2" href="#">
             <img alt="거부기린" className="size-6" src={Logo} />
             <img alt="" className="h-[15px] w-auto" src={TextLogo} />
@@ -173,7 +173,7 @@ export function Gnb({ modeValue, onModeValueChange, modeAriaLabel }: GnbProps) {
           <aside
             aria-modal="true"
             className={[
-              "absolute inset-0 h-full w-screen bg-white pb-8 pl-4 pr-6 pt-4",
+              "absolute inset-0 h-full w-screen bg-white p-4",
               "transition-transform duration-300 ease-out will-change-transform",
               isDrawerOpen ? "translate-x-0" : "translate-x-full",
             ].join(" ")}
@@ -182,7 +182,7 @@ export function Gnb({ modeValue, onModeValueChange, modeAriaLabel }: GnbProps) {
           >
             <div className="flex h-full flex-col items-start justify-between">
               <div className="flex w-full flex-col gap-8">
-                <div className="flex w-full items-center justify-between">
+                <div className="flex w-full items-center justify-between pt-1">
                   <a className="flex items-center gap-2" href="#">
                     <img alt="거부기린" className="size-6" src={Logo} />
                     <img alt="" className="h-[15px] w-auto" src={TextLogo} />
@@ -219,13 +219,11 @@ export function Gnb({ modeValue, onModeValueChange, modeAriaLabel }: GnbProps) {
                 </nav>
               </div>
 
-              <div className="pb-4">
-                <ModeToggle
-                  aria-label={modeAriaLabel}
-                  onValueChange={onModeValueChange}
-                  value={modeValue}
-                />
-              </div>
+              <ModeToggle
+                aria-label={modeAriaLabel}
+                onValueChange={onModeValueChange}
+                value={modeValue}
+              />
             </div>
           </aside>
         </div>
