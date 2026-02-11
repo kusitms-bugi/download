@@ -47,8 +47,8 @@ export const assets = {
   features: {
     iconSeat: "/assets/figma/feature-icon-seat.svg",
     iconWidget: "/assets/figma/feature-icon-widget.svg",
-    iconDashboard: "/assets/figma/feature-icon-dashboard.png",
-    iconAlert: "/assets/figma/feature-icon-alert.png",
+    iconDashboard: "/assets/figma/feature-icon-dashboard.svg",
+    iconAlert: "/assets/figma/feature-icon-alert.svg",
     iconDashboardMobile: "/assets/figma/feature-icon-dashboard-mobile.svg",
     iconAlertMobile: "/assets/figma/feature-icon-alert-mobile.svg",
   },

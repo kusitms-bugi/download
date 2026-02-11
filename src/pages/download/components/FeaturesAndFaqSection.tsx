@@ -3,27 +3,17 @@ import { useMemo } from "react";
 import { assets } from "../assets";
 import { responsive } from "../responsive";
 import { FaqDesktop, FaqMobile, FaqTablet } from "./Faq";
-import ChairMan from '../../../assets/icon-park-outline_seat.png';
-import DashboardIcon from "../../../assets/Dashboadr_Icon.png";
-import NotificationIcon from "../../../assets/Notification_Icon.png";
 
 type Feature = {
   title: string;
   description: string;
   icon: string;
-  iconIsCircleBg?: boolean;
 };
 
 function FeatureCard({ feature }: { feature: Feature }) {
   return (
     <div className="flex h-[229px] flex-col gap-4 rounded-[20px] bg-white p-6">
-      {feature.iconIsCircleBg ? (
-        <div className="grid size-12 place-items-center rounded-full bg-[#fff9e6]">
-          <img alt="" className="size-8" src={feature.icon} />
-        </div>
-      ) : (
-        <img alt="" className="size-12" src={feature.icon} />
-      )}
+      <img alt="" className="size-12 object-contain" src={feature.icon} />
       <div className="flex flex-col gap-3">
         <div className="text-[22px] font-bold leading-[1.5] text-[#2c2c2c]">
           {feature.title}
@@ -43,27 +33,25 @@ export function FeaturesAndFaqSection() {
         title: "바른 자세 분석",
         description:
           "창 전환이나 작업 방해 없이 어디서든 웹캠을 통해 실시간으로 자세 분석이 가능해요.",
-        icon: ChairMan,
-        iconIsCircleBg: true,
+        icon: assets.features.iconSeat,
       },
       {
         title: "실시간 위젯 피드백",
         description:
           "화면 위 작은 위젯의 기린과 거북이가 실시간으로 자세 피드백을 제공하며 원하는 크기와 위치를 조정할 수 있어요.",
         icon: assets.features.iconWidget,
-        iconIsCircleBg: true,
       },
       {
         title: "데이터로 보는 대시보드",
         description:
           "주·월간 단위 개인화 통계와 패턴 분석을 통해 자발적이고 지속적인 변화를 느껴보세요.",
-        icon: DashboardIcon,
+        icon: assets.features.iconDashboard,
       },
       {
         title: "스마트 알림",
         description:
           "자세가 심하게 나빠지거나 스트레칭이 필요한 순간을 정확하게 포착해서 똑똑하게 알려드려요.",
-        icon: NotificationIcon,
+        icon: assets.features.iconAlert,
       },
     ],
     [],
@@ -95,13 +83,11 @@ export function FeaturesAndFaqSection() {
         <div className="mx-auto max-w-[720px] px-4">
           <div className="grid grid-cols-2 gap-5">
             <div className="flex h-[200px] flex-col gap-4 rounded-[20px] bg-white p-6">
-              <div className="grid size-[44px] place-items-center rounded-full bg-[#fff9e6]">
-                <img
-                  alt=""
-                  className="h-[29px] w-[29px]"
-                  src={ChairMan}
-                />
-              </div>
+              <img
+                alt=""
+                className="size-[44px] object-contain"
+                src={assets.features.iconSeat}
+              />
               <div className="flex flex-col gap-3">
                 <div className="text-[20px] font-bold leading-[1.5] text-[#2c2c2c]">
                   바른 자세 분석
@@ -114,13 +100,11 @@ export function FeaturesAndFaqSection() {
             </div>
 
             <div className="flex h-[200px] flex-col gap-4 rounded-[20px] bg-white p-6">
-              <div className="grid size-[44px] place-items-center rounded-full bg-[#fff9e6]">
-                <img
-                  alt=""
-                  className="h-[28px] w-[28px]"
-                  src={assets.features.iconWidget}
-                />
-              </div>
+              <img
+                alt=""
+                className="size-[44px] object-contain"
+                src={assets.features.iconWidget}
+              />
               <div className="flex flex-col gap-3">
                 <div className="text-[20px] font-bold leading-[1.5] text-[#2c2c2c]">
                   실시간 위젯 피드백
@@ -133,7 +117,11 @@ export function FeaturesAndFaqSection() {
             </div>
 
             <div className="flex h-[200px] flex-col gap-4 rounded-[20px] bg-white p-6">
-              <img alt="" className="size-[44px]" src={DashboardIcon} />
+              <img
+                alt=""
+                className="size-[44px] object-contain"
+                src={assets.features.iconDashboard}
+              />
               <div className="flex flex-col gap-3">
                 <div className="text-[20px] font-bold leading-[1.5] text-[#2c2c2c]">
                   데이터로 보는 대시보드
@@ -146,7 +134,11 @@ export function FeaturesAndFaqSection() {
             </div>
 
             <div className="flex h-[200px] flex-col gap-4 rounded-[20px] bg-white p-6">
-              <img alt="" className="size-[44px]" src={NotificationIcon} />
+              <img
+                alt=""
+                className="size-[44px] object-contain"
+                src={assets.features.iconAlert}
+              />
               <div className="flex flex-col gap-3">
                 <div className="text-[20px] font-bold leading-[1.5] text-[#2c2c2c]">
                   스마트 알림
@@ -173,13 +165,11 @@ export function FeaturesAndFaqSection() {
         <div className="mx-auto max-w-[320px] px-4">
           <div className="flex flex-col gap-5">
             <div className="flex h-[200px] flex-col gap-4 rounded-[20px] bg-white p-6">
-              <div className="grid size-10 place-items-center rounded-full bg-[#fff9e6]">
-                <img
-                  alt=""
-                  className="h-[29px] w-[29px]"
-                  src={ChairMan}
-                />
-              </div>
+              <img
+                alt=""
+                className="size-10 object-contain"
+                src={assets.features.iconSeat}
+              />
               <div className="flex flex-col gap-3">
                 <div className="text-[18px] font-bold leading-[1.5] text-[#2c2c2c]">
                   바른 자세 분석
@@ -192,13 +182,11 @@ export function FeaturesAndFaqSection() {
             </div>
 
             <div className="flex h-[200px] flex-col gap-4 rounded-[20px] bg-white p-6">
-              <div className="grid size-10 place-items-center rounded-full bg-[#fff9e6]">
-                <img
-                  alt=""
-                  className="h-[25px] w-[25px]"
-                  src={assets.features.iconWidget}
-                />
-              </div>
+              <img
+                alt=""
+                className="size-10 object-contain"
+                src={assets.features.iconWidget}
+              />
               <div className="flex flex-col gap-3">
                 <div className="text-[18px] font-bold leading-[1.5] text-[#2c2c2c]">
                   실시간 위젯 피드백
@@ -213,7 +201,7 @@ export function FeaturesAndFaqSection() {
             <div className="flex h-[200px] flex-col gap-4 rounded-[20px] bg-white p-6">
               <img
                 alt=""
-                className="size-10"
+                className="size-10 object-contain"
                 src={assets.features.iconDashboardMobile}
               />
               <div className="flex flex-col gap-3">
@@ -230,7 +218,7 @@ export function FeaturesAndFaqSection() {
             <div className="flex h-[200px] flex-col gap-4 rounded-[20px] bg-white p-6">
               <img
                 alt=""
-                className="size-10"
+                className="size-10 object-contain"
                 src={assets.features.iconAlertMobile}
               />
               <div className="flex flex-col gap-3">
