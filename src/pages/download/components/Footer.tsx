@@ -34,9 +34,13 @@ export function Footer() {
             <div className="flex  gap-[15px] text-[14px] font-medium text-[#a8a7a4]">
               <a href="#">운영정책</a>
               <div className="h-4 w-px bg-[#e3e1df]" />
-              <a href="#">개인정보 처리방침</a>
+              <a href="https://adhesive-wrench-b12.notion.site/3097d0b568e280bc900ccdea3f5e4bf0">
+                개인정보 처리방침
+              </a>
               <div className="h-4 w-px bg-[#e3e1df]" />
-              <a href="#">서비스 이용약관</a>
+              <a href="https://adhesive-wrench-b12.notion.site/3097d0b568e280189851cd444d1f1846?pvs=73">
+                서비스 이용약관
+              </a>
             </div>
           </div>
 
@@ -71,9 +75,13 @@ export function Footer() {
             <div className="mt-[64px] flex items-center justify-between text-[14px] font-medium text-[#a8a7a4]">
               <a href="#">운영정책</a>
               <div className="h-4 w-px bg-[#e3e1df]" />
-              <a href="#">개인정보 처리방침</a>
+              <a href="https://adhesive-wrench-b12.notion.site/3097d0b568e280bc900ccdea3f5e4bf0">
+                개인정보 처리방침
+              </a>
               <div className="h-4 w-px bg-[#e3e1df]" />
-              <a href="#">서비스 이용약관</a>
+              <a href="https://adhesive-wrench-b12.notion.site/3097d0b568e280189851cd444d1f1846?pvs=73">
+                서비스 이용약관
+              </a>
             </div>
           </div>
 
