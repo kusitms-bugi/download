@@ -1,8 +1,5 @@
 import { responsive } from "../responsive";
 import Instagram from "../../../assets/Instagram_Icon.png";
-import LinkedIn from "../../../assets/Linkedin_Icon.png";
-import X from "../../../assets/Social_Icon.png";
-import Thread from "../../../assets/Thread_Icon.png";
 
 export function Footer() {
   return (
@@ -24,16 +21,17 @@ export function Footer() {
                 <div>문의 메일: gbgr32@gmail.com</div>
               </div>
               <div className="mt-6 flex gap-6">
-                <img alt="" className="h-5 w-auto" src={Instagram} />
-                <img alt="" className="h-5 w-auto" src={LinkedIn} />
-                <img alt="" className="h-5 w-auto" src={X} />
-                <img alt="" className="h-5 w-auto" src={Thread} />
+                <a
+                  href="https://www.instagram.com/gbgr_official/"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  <img alt="거부기린 인스타그램" className="h-5 w-auto" src={Instagram} />
+                </a>
               </div>
             </div>
 
             <div className="flex  gap-[15px] text-[14px] font-medium text-[#a8a7a4]">
-              <a href="#">운영정책</a>
-              <div className="h-4 w-px bg-[#e3e1df]" />
               <a href="https://adhesive-wrench-b12.notion.site/3097d0b568e280bc900ccdea3f5e4bf0">
                 개인정보 처리방침
               </a>
@@ -66,15 +64,16 @@ export function Footer() {
               <div>문의 메일: gbgr32@gmail.com</div>
             </div>
             <div className="mt-6 flex gap-6">
-              <img alt="" className="h-5 w-auto" src={Instagram} />
-              <img alt="" className="h-5 w-auto" src={LinkedIn} />
-              <img alt="" className="h-5 w-auto" src={X} />
-              <img alt="" className="h-5 w-auto" src={Thread} />
+              <a
+                href="https://www.instagram.com/gbgr_official/"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                <img alt="거부기린 인스타그램" className="h-5 w-auto" src={Instagram} />
+              </a>
             </div>
 
             <div className="mt-[64px] flex items-center justify-between text-[14px] font-medium text-[#a8a7a4]">
-              <a href="#">운영정책</a>
-              <div className="h-4 w-px bg-[#e3e1df]" />
               <a href="https://adhesive-wrench-b12.notion.site/3097d0b568e280bc900ccdea3f5e4bf0">
                 개인정보 처리방침
               </a>
