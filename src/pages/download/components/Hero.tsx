@@ -85,6 +85,18 @@ type EmailFormProps = {
   className?: string;
 };
 
+type SendDownloadLinkResponse = {
+  timestamp?: string;
+  success?: boolean;
+  code?: string;
+  message?: string;
+};
+
+const apiBaseUrl = (import.meta.env.VITE_API_BASE_URL ?? "").trim();
+const landingDownloadEndpoint = apiBaseUrl
+  ? `${apiBaseUrl.replace(/\/+$/, "")}/landing/download`
+  : "/landing/download";
+
 function EmailForm({ className }: EmailFormProps) {
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">(
@@ -108,23 +120,36 @@ function EmailForm({ className }: EmailFormProps) {
     setStatus("sending");
     setMessage("");
 
-    // NOTE:
-    // - 브라우저(프론트)에서 “직접 이메일 발송”은 불가능합니다(메일 API 키가 노출됨).
-    // - 실제 발송을 하려면 서버/서버리스(/api/send-download-link 같은 엔드포인트)가 필요해요.
-    // - 지금은 임시로 mailto:로 메일 앱을 열어주는 방식으로 동작합니다.
     try {
-      const downloadUrl = window.location.href;
-      const subject = encodeURIComponent("[거부기린] 다운로드 링크");
-      const body = encodeURIComponent(
-        `거부기린 다운로드 링크입니다:\n\n${downloadUrl}\n`,
-      );
-      window.location.href = `mailto:${encodeURIComponent(trimmed)}?subject=${subject}&body=${body}`;
+      const response = await fetch(landingDownloadEndpoint, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({ email: trimmed }),
+      });
+
+      let data: SendDownloadLinkResponse | null = null;
+      try {
+        data = (await response.json()) as SendDownloadLinkResponse;
+      } catch {
+        // ignore non-json response body
+      }
+
+      if (!response.ok || data?.success === false) {
+        throw new Error(data?.message || "전송에 실패했어요. 잠시 후 다시 시도해 주세요.");
+      }
 
       setStatus("sent");
-      setMessage("메일 앱이 열렸어요. 전송을 완료해 주세요.");
-    } catch {
+      setMessage(data?.message || "다운로드 링크를 이메일로 전송했어요.");
+    } catch (error) {
       setStatus("error");
-      setMessage("전송에 실패했어요. 잠시 후 다시 시도해 주세요.");
+      setMessage(
+        error instanceof Error
+          ? error.message
+          : "전송에 실패했어요. 잠시 후 다시 시도해 주세요.",
+      );
     }
   }, [email]);
 
