@@ -1,5 +1,6 @@
 import { assets } from "../assets";
 import { responsive } from "../responsive";
+import { trackCtaClick } from "../../../utils/analytics";
 
 export function Cta() {
   const trialHref = "http://demo.bugi.co.kr/";
@@ -7,6 +8,7 @@ export function Cta() {
   return (
     <>
       <section
+        data-ga-cta-section
         className={[
           "relative flex items-center justify-center py-[160px] sm:py-[200px]",
           responsive.showOnlyDesktop,
@@ -35,6 +37,7 @@ export function Cta() {
             href={trialHref}
             rel="noreferrer"
             target="_blank"
+            onClick={() => trackCtaClick('trial')}
           >
             다운로드 없이 체험해보기
           </a>
@@ -42,6 +45,7 @@ export function Cta() {
       </section>
 
       <section
+        data-ga-cta-section
         className={["relative h-[360px]", responsive.showOnlyTablet].join(" ")}
       >
         <img
@@ -68,6 +72,7 @@ export function Cta() {
               href={trialHref}
               rel="noreferrer"
               target="_blank"
+              onClick={() => trackCtaClick('trial')}
             >
               다운로드 없이 체험해보기
             </a>
@@ -76,6 +81,7 @@ export function Cta() {
       </section>
 
       <section
+        data-ga-cta-section
         className={["relative h-[297px]", responsive.showOnlyMobile].join(" ")}
       >
         <img

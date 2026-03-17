@@ -4,6 +4,7 @@ import { Button, TextField } from "@gbgr/ui";
 
 import { assets } from "../assets";
 import { responsive } from "../responsive";
+import { trackDownload, trackEmailSubmit } from "../../../utils/analytics";
 
 type DownloadLinks = {
   macArm64Dmg: string;
@@ -119,6 +120,7 @@ function EmailForm({ className }: EmailFormProps) {
 
     setStatus("sending");
     setMessage("");
+    trackEmailSubmit('start');
 
     try {
       const response = await fetch(landingDownloadEndpoint, {
@@ -143,6 +145,7 @@ function EmailForm({ className }: EmailFormProps) {
 
       setStatus("sent");
       setMessage(data?.message || "다운로드 링크를 이메일로 전송했어요.");
+      trackEmailSubmit('success');
     } catch (error) {
       setStatus("error");
       setMessage(
@@ -150,6 +153,7 @@ function EmailForm({ className }: EmailFormProps) {
           ? error.message
           : "전송에 실패했어요. 잠시 후 다시 시도해 주세요.",
       );
+      trackEmailSubmit('error');
     }
   }, [email]);
 
@@ -263,6 +267,7 @@ export function Hero() {
                 href={downloadLinks.macArm64Dmg}
                 rel="noreferrer"
                 target="_blank"
+                onClick={() => trackDownload('macos')}
               >
                 <img alt="" className="size-6" src={assets.hero.iconApple} />
                 macOS용 다운로드
@@ -272,6 +277,7 @@ export function Hero() {
                 href={downloadLinks.windowsExe}
                 rel="noreferrer"
                 target="_blank"
+                onClick={() => trackDownload('windows')}
               >
                 <img alt="" className="size-6" src={assets.hero.iconWindows} />
                 Window용 다운로드
@@ -282,6 +288,7 @@ export function Hero() {
               href={downloadLinks.macX64Dmg}
               rel="noreferrer"
               target="_blank"
+              onClick={() => trackDownload('macos_intel')}
             >
               Intel 기반 macOS용 다운로드
             </a>

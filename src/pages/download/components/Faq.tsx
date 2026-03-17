@@ -1,6 +1,7 @@
 import { useMemo, useState } from "react";
 
 import { assets } from "../assets";
+import { trackFaqInteraction } from "../../../utils/analytics";
 
 type FaqItem = {
   question: string;
@@ -69,6 +70,8 @@ export function FaqDesktop() {
               <button
                 className="flex w-full items-start justify-between gap-6 bg-white px-5 py-3 text-left"
                 onClick={() => {
+                  const isOpen = openIndexes.has(index);
+                  trackFaqInteraction(index, !isOpen);
                   setOpenIndexes((prev) => {
                     const next = new Set(prev);
                     if (next.has(index)) next.delete(index);
@@ -177,9 +180,11 @@ export function FaqTablet() {
               ) : null}
               <button
                 className="flex w-full items-start justify-between gap-4 bg-white px-5 py-3 text-left"
-                onClick={() =>
-                  setOpenIndex((prev) => (prev === index ? -1 : index))
-                }
+                onClick={() => {
+                  const isOpen = openIndex === index;
+                  trackFaqInteraction(index, !isOpen);
+                  setOpenIndex((prev) => (prev === index ? -1 : index));
+                }}
                 type="button"
               >
                 <div className="flex flex-1 items-start gap-2 text-[18px] font-medium leading-[1.5] text-[#3c3b3a]">
@@ -276,9 +281,11 @@ export function FaqMobile() {
               ) : null}
               <button
                 className="flex w-full items-start justify-between gap-3 bg-white px-5 py-3 text-left"
-                onClick={() =>
-                  setOpenIndex((prev) => (prev === index ? -1 : index))
-                }
+                onClick={() => {
+                  const isOpen = openIndex === index;
+                  trackFaqInteraction(index, !isOpen);
+                  setOpenIndex((prev) => (prev === index ? -1 : index));
+                }}
                 type="button"
               >
                 <div className="flex flex-1 items-start gap-2 text-[16px] font-medium leading-[1.5] text-[#3c3b3a]">
