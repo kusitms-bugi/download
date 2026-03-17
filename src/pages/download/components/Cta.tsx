@@ -1,9 +1,14 @@
+import { useCallback } from "react";
 import { assets } from "../assets";
 import { responsive } from "../responsive";
 import { trackCtaClick } from "../../../utils/analytics";
 
 export function Cta() {
   const trialHref = "http://demo.bugi.co.kr/";
+
+  const handleTrialClick = useCallback(() => {
+    trackCtaClick('trial');
+  }, []);
 
   return (
     <>
@@ -37,7 +42,7 @@ export function Cta() {
             href={trialHref}
             rel="noreferrer"
             target="_blank"
-            onClick={() => trackCtaClick('trial')}
+            onClick={handleTrialClick}
           >
             다운로드 없이 체험해보기
           </a>
@@ -72,7 +77,7 @@ export function Cta() {
               href={trialHref}
               rel="noreferrer"
               target="_blank"
-              onClick={() => trackCtaClick('trial')}
+              onClick={handleTrialClick}
             >
               다운로드 없이 체험해보기
             </a>

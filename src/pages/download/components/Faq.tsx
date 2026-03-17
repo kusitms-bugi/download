@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useCallback, useMemo, useState } from "react";
 
 import { assets } from "../assets";
 import { trackFaqInteraction } from "../../../utils/analytics";
@@ -53,6 +53,17 @@ export function FaqDesktop() {
 
   const [openIndexes, setOpenIndexes] = useState<Set<number>>(() => new Set());
 
+  const handleFaqToggle = useCallback((index: number) => {
+    const isOpen = openIndexes.has(index);
+    trackFaqInteraction(index, !isOpen);
+    setOpenIndexes((prev) => {
+      const next = new Set(prev);
+      if (next.has(index)) next.delete(index);
+      else next.add(index);
+      return next;
+    });
+  }, [openIndexes]);
+
   return (
     <div className="rounded-[20px] bg-white p-10">
       <h3 className="text-center text-[32px] font-bold leading-[1.5] text-[#212121]">
@@ -69,16 +80,7 @@ export function FaqDesktop() {
               ) : null}
               <button
                 className="flex w-full items-start justify-between gap-6 bg-white px-5 py-3 text-left"
-                onClick={() => {
-                  const isOpen = openIndexes.has(index);
-                  trackFaqInteraction(index, !isOpen);
-                  setOpenIndexes((prev) => {
-                    const next = new Set(prev);
-                    if (next.has(index)) next.delete(index);
-                    else next.add(index);
-                    return next;
-                  });
-                }}
+                onClick={() => handleFaqToggle(index)}
                 type="button"
               >
                 <div className="flex flex-1 items-start gap-2 text-[18px] font-medium leading-[1.5] text-[#3c3b3a]">
@@ -117,6 +119,7 @@ export function FaqDesktop() {
 
 export function FaqTablet() {
   const items = useMemo<FaqItem[]>(
+    () => [
     () => [
       {
         question: "웹캠을 사용하는데 보안이나 사생활 침해 걱정은 없나요?",
@@ -160,6 +163,12 @@ export function FaqTablet() {
 
   const [openIndex, setOpenIndex] = useState<number>(-1);
 
+  const handleFaqToggle = useCallback((index: number) => {
+    const isOpen = openIndex === index;
+    trackFaqInteraction(index, !isOpen);
+    setOpenIndex((prev) => (prev === index ? -1 : index));
+  }, [openIndex]);
+
   return (
     <div className="rounded-[20px] bg-white px-5 py-10">
       <h3 className="text-center text-[28px] font-bold leading-[1.5] text-[#212121]">
@@ -180,11 +189,7 @@ export function FaqTablet() {
               ) : null}
               <button
                 className="flex w-full items-start justify-between gap-4 bg-white px-5 py-3 text-left"
-                onClick={() => {
-                  const isOpen = openIndex === index;
-                  trackFaqInteraction(index, !isOpen);
-                  setOpenIndex((prev) => (prev === index ? -1 : index));
-                }}
+                onClick={() => handleFaqToggle(index)}
                 type="button"
               >
                 <div className="flex flex-1 items-start gap-2 text-[18px] font-medium leading-[1.5] text-[#3c3b3a]">
@@ -261,6 +266,12 @@ export function FaqMobile() {
 
   const [openIndex, setOpenIndex] = useState<number>(-1);
 
+  const handleFaqToggle = useCallback((index: number) => {
+    const isOpen = openIndex === index;
+    trackFaqInteraction(index, !isOpen);
+    setOpenIndex((prev) => (prev === index ? -1 : index));
+  }, [openIndex]);
+
   return (
     <div className="rounded-[20px] bg-white py-5">
       <h3 className="text-center text-[24px] font-bold leading-[1.5] text-[#212121]">
@@ -281,11 +292,7 @@ export function FaqMobile() {
               ) : null}
               <button
                 className="flex w-full items-start justify-between gap-3 bg-white px-5 py-3 text-left"
-                onClick={() => {
-                  const isOpen = openIndex === index;
-                  trackFaqInteraction(index, !isOpen);
-                  setOpenIndex((prev) => (prev === index ? -1 : index));
-                }}
+                onClick={() => handleFaqToggle(index)}
                 type="button"
               >
                 <div className="flex flex-1 items-start gap-2 text-[16px] font-medium leading-[1.5] text-[#3c3b3a]">

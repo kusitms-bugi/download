@@ -20,16 +20,17 @@ function App() {
       }
     );
 
-    // Look for CTA section after a short delay to ensure DOM is ready
-    const timeoutId = setTimeout(() => {
+    // Use requestAnimationFrame to ensure DOM is ready before observing
+    // This is more reliable than setTimeout and faster than 1 second delay
+    const rafId = requestAnimationFrame(() => {
       const ctaSection = document.querySelector('[data-ga-cta-section]');
       if (ctaSection) {
         observer.observe(ctaSection);
       }
-    }, 1000);
+    });
 
     return () => {
-      clearTimeout(timeoutId);
+      cancelAnimationFrame(rafId);
       observer.disconnect();
     };
   }, []);

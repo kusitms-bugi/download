@@ -267,7 +267,7 @@ export function Hero() {
                 href={downloadLinks.macArm64Dmg}
                 rel="noreferrer"
                 target="_blank"
-                onClick={() => trackDownload('macos')}
+                onMouseDown={() => trackDownload('macos')}
               >
                 <img alt="" className="size-6" src={assets.hero.iconApple} />
                 macOS용 다운로드
@@ -277,7 +277,7 @@ export function Hero() {
                 href={downloadLinks.windowsExe}
                 rel="noreferrer"
                 target="_blank"
-                onClick={() => trackDownload('windows')}
+                onMouseDown={() => trackDownload('windows')}
               >
                 <img alt="" className="size-6" src={assets.hero.iconWindows} />
                 Window용 다운로드
@@ -288,7 +288,7 @@ export function Hero() {
               href={downloadLinks.macX64Dmg}
               rel="noreferrer"
               target="_blank"
-              onClick={() => trackDownload('macos_intel')}
+              onMouseDown={() => trackDownload('macos_intel')}
             >
               Intel 기반 macOS용 다운로드
             </a>

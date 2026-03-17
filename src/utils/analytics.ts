@@ -80,8 +80,16 @@ export function trackCtaClick(type: 'trial'): void {
 
 /**
  * Track FAQ interactions
+ * @param questionIndex - The FAQ question index (0-6)
+ * @param isOpen - Whether the question is being opened (true) or closed (false)
  */
 export function trackFaqInteraction(questionIndex: number, isOpen: boolean): void {
+  // Validate question index range (project has 7 FAQ items: 0-6)
+  if (questionIndex < 0 || questionIndex > 6) {
+    console.warn(`[GA4] Invalid FAQ index: ${questionIndex}. Must be between 0 and 6.`);
+    return;
+  }
+
   trackEvent({
     category: 'faq',
     action: isOpen ? 'faq_open' : 'faq_close',
