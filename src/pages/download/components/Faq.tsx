@@ -120,7 +120,6 @@ export function FaqDesktop() {
 export function FaqTablet() {
   const items = useMemo<FaqItem[]>(
     () => [
-    () => [
       {
         question: "웹캠을 사용하는데 보안이나 사생활 침해 걱정은 없나요?",
         answer:
