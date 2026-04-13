@@ -1,6 +1,7 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 
 import type { ModeToggleValue } from "@gbgr/ui";
+import { useTranslation } from "react-i18next";
 
 import { Cta } from "./download/components/Cta";
 import { FeaturesAndFaqSection } from "./download/components/FeaturesAndFaqSection";
@@ -11,6 +12,7 @@ import { KeypointsSection } from "./download/components/KeypointsSection";
 import { WhySection } from "./download/components/WhySection";
 
 export default function DownloadPage() {
+  const { t } = useTranslation();
   const storageKey = "gbgr.theme";
 
   const [theme, setTheme] = useState<ModeToggleValue>(() => {
@@ -33,10 +35,7 @@ export default function DownloadPage() {
     }
   }, [theme]);
 
-  const modeAriaLabel = useMemo(
-    () => (theme === "dark" ? "다크 모드" : "라이트 모드"),
-    [theme],
-  );
+  const modeAriaLabel = theme === "dark" ? t("common.darkMode") : t("common.lightMode");
 
   return (
     <div className="min-h-screen bg-[var(--gbgr-page-bg)] text-[var(--gbgr-page-text)]">

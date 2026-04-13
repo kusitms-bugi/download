@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import { useTranslation } from "react-i18next";
 
 import { assets } from "../assets";
 import { responsive } from "../responsive";
@@ -77,6 +78,8 @@ function Keypoint({
 }
 
 export function KeypointsSection() {
+  const { t } = useTranslation();
+
   return (
     <>
       <section
@@ -86,51 +89,35 @@ export function KeypointsSection() {
       >
         <div className="mx-auto flex max-w-[1320px] flex-col gap-[160px] px-6">
           <Keypoint
-            descLines={[
-              "노트북이 있는 곳이라면 언제 어디서든 실행 가능해요",
-              "온디바이스 구조로 프라이버시 걱정 없이 안전하게",
-            ]}
+            descLines={[t("keypoints.kp1.desc1"), t("keypoints.kp1.desc2")]}
             imageAlt="Keypoint 1"
             imageSrc={assets.keypoints.kp1}
-            label="Keypoint 1"
-            titleLines={["별도의 장비없이", "설치 한 번이면 끝!"]}
+            label={t("keypoints.kp1.label")}
+            titleLines={[t("keypoints.kp1.title1"), t("keypoints.kp1.title2")]}
           />
 
           <Keypoint
             alignRight
-            descLines={[
-              "바른 자세를 유지할수록 캐릭터는 더 빨리 달리고",
-              "더 빨리 레벨업해서 보상을 받을 수 있어요.",
-            ]}
+            descLines={[t("keypoints.kp2.desc1"), t("keypoints.kp2.desc2")]}
             imageAlt="Keypoint 2"
             imageClassName="!max-w-[635px] !shadow-none !rounded-none"
             imageSrc={assets.keypoints.kp2}
-            label="Keypoint 2"
+            label={t("keypoints.kp2.label")}
             reverse
-            titleLines={[
-              "방해되지 않는 귀여움,",
-              "당신과 함께 쑥쑥 자라는 캐릭터",
-            ]}
+            titleLines={[t("keypoints.kp2.title1"), t("keypoints.kp2.title2")]}
           />
 
           <Keypoint
-            descLines={[
-              "매일의 작은 변화가 모이는 공간",
-              "오늘의 리포트, 거북목 추이, 자세 개선 팁을",
-              "한 눈에 파악 가능해요.",
-            ]}
+            descLines={[t("keypoints.kp3.desc1"), t("keypoints.kp3.desc2"), t("keypoints.kp3.desc3")]}
             imageAlt="Keypoint 3"
             imageSrc={assets.keypoints.kp3}
-            label="Keypoint 3"
-            titleLines={["나의 성장을 확인하는", "대시보드"]}
+            label={t("keypoints.kp3.label")}
+            titleLines={[t("keypoints.kp3.title1"), t("keypoints.kp3.title2")]}
           />
 
           <Keypoint
             alignRight
-            descLines={[
-              "한 단계 높은 개입을 통해 위젯으로",
-              "교정되지 않은 장시간 거북목 상태를 완화시켜줘요.",
-            ]}
+            descLines={[t("keypoints.kp4.desc1"), t("keypoints.kp4.desc2")]}
             extra={
               <div className="mt-10">
                 <img
@@ -142,9 +129,9 @@ export function KeypointsSection() {
             }
             imageAlt="Keypoint 4"
             imageSrc={assets.keypoints.kp4}
-            label="Keypoint 4"
+            label={t("keypoints.kp4.label")}
             reverse
-            titleLines={["간편한 맞춤형 알림"]}
+            titleLines={[t("keypoints.kp4.title")]}
           />
 
           <div className="flex flex-col items-start gap-[40px] lg:flex-row lg:gap-[72px]">
@@ -163,16 +150,16 @@ export function KeypointsSection() {
             <div className="flex flex-col gap-6">
               <div className="flex flex-col gap-2">
                 <div className="text-[20px] font-medium text-[#ffbf00]">
-                  Keypoint 5
+                  {t("keypoints.kp5.label")}
                 </div>
                 <div className="text-[28px] font-bold leading-[1.2] text-[#212121] sm:text-[32px] sm:leading-[1.6]">
-                  <div>사이즈 조절 가능한</div>
-                  <div>스마트 위젯</div>
+                  <div>{t("keypoints.kp5.title1")}</div>
+                  <div>{t("keypoints.kp5.title2")}</div>
                 </div>
               </div>
               <div className="text-[18px] font-medium leading-[1.6] text-[#7e7e7b] sm:text-[20px]">
-                <div>위젯 피드백을 통해 방해 없이 작업하면서</div>
-                <div>바른 자세를 유지할 수 있도록 도와줘요.</div>
+                <div>{t("keypoints.kp5.desc1")}</div>
+                <div>{t("keypoints.kp5.desc2")}</div>
               </div>
             </div>
           </div>
@@ -191,15 +178,15 @@ export function KeypointsSection() {
             />
             <div className="flex flex-col gap-3">
               <div className="text-[16px] font-medium text-[#ffbf00]">
-                Keypoint 1
+                {t("keypoints.kp1.label")}
               </div>
               <div className="text-[28px] font-bold leading-[1.5] text-[#212121]">
-                <div>별도의 장비없이</div>
-                <div>설치 한 번이면 끝!</div>
+                <div>{t("keypoints.kp1.title1")}</div>
+                <div>{t("keypoints.kp1.title2")}</div>
               </div>
               <div className="text-[16px] font-medium leading-[1.5] text-[#7e7e7b]">
-                <div>노트북이 있는 곳이라면 언제 어디서든 실행 가능해요</div>
-                <div>온디바이스 구조로 프라이버시 걱정 없이 안전하게</div>
+                <div>{t("keypoints.kp1.desc1")}</div>
+                <div>{t("keypoints.kp1.desc2")}</div>
               </div>
             </div>
           </div>
@@ -212,15 +199,15 @@ export function KeypointsSection() {
             />
             <div className="flex flex-col gap-3">
               <div className="text-[16px] font-medium text-[#ffbf00]">
-                Keypoint 2
+                {t("keypoints.kp2.label")}
               </div>
               <div className="text-[28px] font-bold leading-[1.5] text-[#212121]">
-                <div>방해되지 않는 귀여움,</div>
-                <div>당신과 함께 쑥쑥 자라는 캐릭터</div>
+                <div>{t("keypoints.kp2.title1")}</div>
+                <div>{t("keypoints.kp2.title2")}</div>
               </div>
               <div className="text-[16px] font-medium leading-[1.5] text-[#7e7e7b]">
-                <div>바른 자세를 유지할수록 캐릭터는 더 빨리 달리고</div>
-                <div>더 빨리 레벨업해서 보상을 받을 수 있어요.</div>
+                <div>{t("keypoints.kp2.desc1")}</div>
+                <div>{t("keypoints.kp2.desc2")}</div>
               </div>
             </div>
           </div>
@@ -233,16 +220,16 @@ export function KeypointsSection() {
             />
             <div className="flex flex-col gap-3">
               <div className="text-[16px] font-medium text-[#ffbf00]">
-                Keypoint 3
+                {t("keypoints.kp3.label")}
               </div>
               <div className="text-[28px] font-bold leading-[1.5] text-[#212121]">
-                <div>나의 성장을 확인하는</div>
-                <div>대시보드</div>
+                <div>{t("keypoints.kp3.title1")}</div>
+                <div>{t("keypoints.kp3.title2")}</div>
               </div>
               <div className="text-[16px] font-medium leading-[1.5] text-[#7e7e7b]">
-                <div>매일의 작은 변화가 모이는 공간</div>
-                <div>오늘의 리포트, 거북목 추이, 자세 개선 팁을</div>
-                <div>한 눈에 파악 가능해요.</div>
+                <div>{t("keypoints.kp3.desc1")}</div>
+                <div>{t("keypoints.kp3.desc2")}</div>
+                <div>{t("keypoints.kp3.desc3")}</div>
               </div>
             </div>
           </div>
@@ -255,14 +242,14 @@ export function KeypointsSection() {
             />
             <div className="flex flex-col gap-3">
               <div className="text-[16px] font-medium text-[#ffbf00]">
-                Keypoint 4
+                {t("keypoints.kp4.label")}
               </div>
               <div className="text-[28px] font-bold leading-[1.5] text-[#212121]">
-                간편한 맞춤형 알림
+                {t("keypoints.kp4.title")}
               </div>
               <div className="text-[16px] font-medium leading-[1.5] text-[#7e7e7b]">
-                <div>한 단계 높은 개입을 통해 위젯으로</div>
-                <div>교정되지 않은 장시간 거북목 상태를 완화시켜줘요.</div>
+                <div>{t("keypoints.kp4.desc1")}</div>
+                <div>{t("keypoints.kp4.desc2")}</div>
               </div>
               <div className="mt-4">
                 <img
@@ -289,15 +276,15 @@ export function KeypointsSection() {
             </div>
             <div className="flex flex-col gap-3">
               <div className="text-[12px] font-medium text-[#ffbf00]">
-                Keypoint 5
+                {t("keypoints.kp5.label")}
               </div>
               <div className="text-[22px] font-bold leading-[1.5] text-[#212121]">
-                <div>사이즈 조절 가능한</div>
-                <div>스마트 위젯</div>
+                <div>{t("keypoints.kp5.title1")}</div>
+                <div>{t("keypoints.kp5.title2")}</div>
               </div>
               <div className="text-[12px] font-medium leading-[1.5] text-[#7e7e7b]">
-                <div>위젯 피드백을 통해 방해 없이 작업하면서</div>
-                <div>바른 자세를 유지할 수 있도록 도와줘요.</div>
+                <div>{t("keypoints.kp5.desc1")}</div>
+                <div>{t("keypoints.kp5.desc2")}</div>
               </div>
             </div>
           </div>
@@ -316,15 +303,15 @@ export function KeypointsSection() {
             />
             <div className="flex flex-col gap-3">
               <div className="text-[12px] font-medium text-[#ffbf00]">
-                Keypoint 1
+                {t("keypoints.kp1.label")}
               </div>
               <div className="text-[22px] font-bold leading-[1.5] text-[#212121]">
-                <div>별도의 장비없이</div>
-                <div>설치 한 번이면 끝!</div>
+                <div>{t("keypoints.kp1.title1")}</div>
+                <div>{t("keypoints.kp1.title2")}</div>
               </div>
               <div className="text-[12px] font-medium leading-[1.5] text-[#7e7e7b]">
-                <div>노트북이 있는 곳이라면 언제 어디서든 실행 가능해요</div>
-                <div>온디바이스 구조로 프라이버시 걱정 없이 안전하게</div>
+                <div>{t("keypoints.kp1.desc1")}</div>
+                <div>{t("keypoints.kp1.desc2")}</div>
               </div>
             </div>
           </div>
@@ -337,15 +324,15 @@ export function KeypointsSection() {
             />
             <div className="flex flex-col gap-3">
               <div className="text-[12px] font-medium text-[#ffbf00]">
-                Keypoint 2
+                {t("keypoints.kp2.label")}
               </div>
               <div className="text-[22px] font-bold leading-[1.5] text-[#212121]">
-                <div>방해되지 않는 귀여움,</div>
-                <div>당신과 함께 쑥쑥 자라는 캐릭터</div>
+                <div>{t("keypoints.kp2.title1")}</div>
+                <div>{t("keypoints.kp2.title2")}</div>
               </div>
               <div className="text-[12px] font-medium leading-[1.5] text-[#7e7e7b]">
-                <div>바른 자세를 유지할수록 캐릭터는 더 빨리 달리고</div>
-                <div>더 빨리 레벨업해서 보상을 받을 수 있어요.</div>
+                <div>{t("keypoints.kp2.desc1")}</div>
+                <div>{t("keypoints.kp2.desc2")}</div>
               </div>
             </div>
           </div>
@@ -358,16 +345,16 @@ export function KeypointsSection() {
             />
             <div className="flex flex-col gap-3">
               <div className="text-[12px] font-medium text-[#ffbf00]">
-                Keypoint 3
+                {t("keypoints.kp3.label")}
               </div>
               <div className="text-[22px] font-bold leading-[1.5] text-[#212121]">
-                <div>나의 성장을 확인하는</div>
-                <div>대시보드</div>
+                <div>{t("keypoints.kp3.title1")}</div>
+                <div>{t("keypoints.kp3.title2")}</div>
               </div>
               <div className="text-[12px] font-medium leading-[1.5] text-[#7e7e7b]">
-                <div>매일의 작은 변화가 모이는 공간</div>
-                <div>오늘의 리포트, 거북목 추이, 자세 개선 팁을</div>
-                <div>한 눈에 파악 가능해요.</div>
+                <div>{t("keypoints.kp3.desc1")}</div>
+                <div>{t("keypoints.kp3.desc2")}</div>
+                <div>{t("keypoints.kp3.desc3")}</div>
               </div>
             </div>
           </div>
@@ -380,14 +367,14 @@ export function KeypointsSection() {
             />
             <div className="flex flex-col gap-3">
               <div className="text-[12px] font-medium text-[#ffbf00]">
-                Keypoint 4
+                {t("keypoints.kp4.label")}
               </div>
               <div className="text-[22px] font-bold leading-[1.5] text-[#212121]">
-                간편한 맞춤형 알림
+                {t("keypoints.kp4.title")}
               </div>
               <div className="text-[12px] font-medium leading-[1.5] text-[#7e7e7b]">
-                <div>한 단계 높은 개입을 통해 위젯으로</div>
-                <div>교정되지 않은 장시간 거북목 상태를 완화시켜줘요.</div>
+                <div>{t("keypoints.kp4.desc1")}</div>
+                <div>{t("keypoints.kp4.desc2")}</div>
               </div>
               <div className="mt-4">
                 <img
@@ -414,15 +401,15 @@ export function KeypointsSection() {
             </div>
             <div className="flex flex-col gap-3">
               <div className="text-[12px] font-medium text-[#ffbf00]">
-                Keypoint 5
+                {t("keypoints.kp5.label")}
               </div>
               <div className="text-[22px] font-bold leading-[1.5] text-[#212121]">
-                <div>사이즈 조절 가능한</div>
-                <div>스마트 위젯</div>
+                <div>{t("keypoints.kp5.title1")}</div>
+                <div>{t("keypoints.kp5.title2")}</div>
               </div>
               <div className="text-[12px] font-medium leading-[1.5] text-[#7e7e7b]">
-                <div>위젯 피드백을 통해 방해 없이 작업하면서</div>
-                <div>바른 자세를 유지할 수 있도록 도와줘요.</div>
+                <div>{t("keypoints.kp5.desc1")}</div>
+                <div>{t("keypoints.kp5.desc2")}</div>
               </div>
             </div>
           </div>

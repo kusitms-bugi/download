@@ -1,4 +1,5 @@
 import { useMemo } from "react";
+import { useTranslation } from "react-i18next";
 
 import { assets } from "../assets";
 import { responsive } from "../responsive";
@@ -12,7 +13,7 @@ type Feature = {
 
 function FeatureCard({ feature }: { feature: Feature }) {
   return (
-    <div className="flex h-[229px] flex-col gap-4 rounded-[20px] bg-white p-6">
+    <div className="flex min-h-[229px] flex-col gap-4 rounded-[20px] bg-white p-6">
       <img alt="" className="size-12 object-contain" src={feature.icon} />
       <div className="flex flex-col gap-3">
         <div className="text-[22px] font-bold leading-[1.5] text-[#2c2c2c]">
@@ -27,34 +28,32 @@ function FeatureCard({ feature }: { feature: Feature }) {
 }
 
 export function FeaturesAndFaqSection() {
+  const { t } = useTranslation();
+
   const features = useMemo<Feature[]>(
     () => [
       {
-        title: "바른 자세 분석",
-        description:
-          "창 전환이나 작업 방해 없이 어디서든 웹캠을 통해 실시간으로 자세 분석이 가능해요.",
+        title: t("features.posture.title"),
+        description: t("features.posture.desc"),
         icon: assets.features.iconSeat,
       },
       {
-        title: "실시간 위젯 피드백",
-        description:
-          "화면 위 작은 위젯의 기린과 거북이가 실시간으로 자세 피드백을 제공하며 원하는 크기와 위치를 조정할 수 있어요.",
+        title: t("features.widget.title"),
+        description: t("features.widget.desc"),
         icon: assets.features.iconWidget,
       },
       {
-        title: "데이터로 보는 대시보드",
-        description:
-          "주·월간 단위 개인화 통계와 패턴 분석을 통해 자발적이고 지속적인 변화를 느껴보세요.",
+        title: t("features.dashboard.title"),
+        description: t("features.dashboard.desc"),
         icon: assets.features.iconDashboard,
       },
       {
-        title: "스마트 알림",
-        description:
-          "자세가 심하게 나빠지거나 스트레칭이 필요한 순간을 정확하게 포착해서 똑똑하게 알려드려요.",
+        title: t("features.alert.title"),
+        description: t("features.alert.desc"),
         icon: assets.features.iconAlert,
       },
     ],
-    [],
+    [t],
   );
 
   return (
@@ -82,7 +81,7 @@ export function FeaturesAndFaqSection() {
       >
         <div className="mx-auto max-w-[720px] px-4">
           <div className="grid grid-cols-2 gap-5">
-            <div className="flex h-[200px] flex-col gap-4 rounded-[20px] bg-white p-6">
+            <div className="flex min-h-[200px] flex-col gap-4 rounded-[20px] bg-white p-6">
               <img
                 alt=""
                 className="size-[44px] object-contain"
@@ -90,16 +89,15 @@ export function FeaturesAndFaqSection() {
               />
               <div className="flex flex-col gap-3">
                 <div className="text-[20px] font-bold leading-[1.5] text-[#2c2c2c]">
-                  바른 자세 분석
+                  {t("features.posture.title")}
                 </div>
                 <div className="text-[15px] font-medium leading-[1.5] text-[#7e7e7b]">
-                  창 전환이나 작업 방해 없이 어디서든 웹캠을 통해 실시간으로
-                  자세 분석이 가능해요.
+                  {t("features.posture.desc")}
                 </div>
               </div>
             </div>
 
-            <div className="flex h-[200px] flex-col gap-4 rounded-[20px] bg-white p-6">
+            <div className="flex min-h-[200px] flex-col gap-4 rounded-[20px] bg-white p-6">
               <img
                 alt=""
                 className="size-[44px] object-contain"
@@ -107,16 +105,15 @@ export function FeaturesAndFaqSection() {
               />
               <div className="flex flex-col gap-3">
                 <div className="text-[20px] font-bold leading-[1.5] text-[#2c2c2c]">
-                  실시간 위젯 피드백
+                  {t("features.widget.title")}
                 </div>
                 <div className="text-[15px] font-medium leading-[1.5] text-[#7e7e7b]">
-                  화면 위 작은 위젯의 기린과 거북이가 실시간으로 자세 피드백을
-                  제공하며 원하는 크기와 위치를 조정할 수 있어요.
+                  {t("features.widget.desc")}
                 </div>
               </div>
             </div>
 
-            <div className="flex h-[200px] flex-col gap-4 rounded-[20px] bg-white p-6">
+            <div className="flex min-h-[200px] flex-col gap-4 rounded-[20px] bg-white p-6">
               <img
                 alt=""
                 className="size-[44px] object-contain"
@@ -124,16 +121,15 @@ export function FeaturesAndFaqSection() {
               />
               <div className="flex flex-col gap-3">
                 <div className="text-[20px] font-bold leading-[1.5] text-[#2c2c2c]">
-                  데이터로 보는 대시보드
+                  {t("features.dashboard.title")}
                 </div>
                 <div className="text-[15px] font-medium leading-[1.5] text-[#7e7e7b]">
-                  주·월간 단위 개인화 통계와 패턴 분석을 통해 자발적이고
-                  지속적인 변화를 느껴보세요.
+                  {t("features.dashboard.desc")}
                 </div>
               </div>
             </div>
 
-            <div className="flex h-[200px] flex-col gap-4 rounded-[20px] bg-white p-6">
+            <div className="flex min-h-[200px] flex-col gap-4 rounded-[20px] bg-white p-6">
               <img
                 alt=""
                 className="size-[44px] object-contain"
@@ -141,11 +137,10 @@ export function FeaturesAndFaqSection() {
               />
               <div className="flex flex-col gap-3">
                 <div className="text-[20px] font-bold leading-[1.5] text-[#2c2c2c]">
-                  스마트 알림
+                  {t("features.alert.title")}
                 </div>
                 <div className="text-[15px] font-medium leading-[1.5] text-[#7e7e7b]">
-                  자세가 심하게 나빠지거나 스트레칭이 필요한 순간을 정확하게
-                  포착해서 똑똑하게 알려드려요.
+                  {t("features.alert.desc")}
                 </div>
               </div>
             </div>
@@ -164,7 +159,7 @@ export function FeaturesAndFaqSection() {
       >
         <div className="mx-4 min-w-[320px]">
           <div className="flex flex-col gap-5">
-            <div className="flex h-[200px] flex-col gap-4 rounded-[20px] bg-white p-6">
+            <div className="flex min-h-[200px] flex-col gap-4 rounded-[20px] bg-white p-6">
               <img
                 alt=""
                 className="size-10 object-contain"
@@ -172,16 +167,15 @@ export function FeaturesAndFaqSection() {
               />
               <div className="flex flex-col gap-3">
                 <div className="text-[18px] font-bold leading-[1.5] text-[#2c2c2c]">
-                  바른 자세 분석
+                  {t("features.posture.title")}
                 </div>
                 <div className="text-[14px] font-medium leading-[1.5] text-[#7e7e7b]">
-                  창 전환이나 작업 방해 없이 어디서든 웹캠을 통해 실시간으로
-                  자세 분석이 가능해요.
+                  {t("features.posture.desc")}
                 </div>
               </div>
             </div>
 
-            <div className="flex h-[200px] flex-col gap-4 rounded-[20px] bg-white p-6">
+            <div className="flex min-h-[200px] flex-col gap-4 rounded-[20px] bg-white p-6">
               <img
                 alt=""
                 className="size-10 object-contain"
@@ -189,16 +183,15 @@ export function FeaturesAndFaqSection() {
               />
               <div className="flex flex-col gap-3">
                 <div className="text-[18px] font-bold leading-[1.5] text-[#2c2c2c]">
-                  실시간 위젯 피드백
+                  {t("features.widget.title")}
                 </div>
                 <div className="text-[14px] font-medium leading-[1.5] text-[#7e7e7b]">
-                  화면 위 작은 위젯의 기린과 거북이가 실시간으로 자세 피드백을
-                  제공하며 원하는 크기와 위치를 조정할 수 있어요.
+                  {t("features.widget.desc")}
                 </div>
               </div>
             </div>
 
-            <div className="flex h-[200px] flex-col gap-4 rounded-[20px] bg-white p-6">
+            <div className="flex min-h-[200px] flex-col gap-4 rounded-[20px] bg-white p-6">
               <img
                 alt=""
                 className="size-10 object-contain"
@@ -206,16 +199,15 @@ export function FeaturesAndFaqSection() {
               />
               <div className="flex flex-col gap-3">
                 <div className="text-[18px] font-bold leading-[1.5] text-[#2c2c2c]">
-                  데이터로 보는 대시보드
+                  {t("features.dashboard.title")}
                 </div>
                 <div className="text-[14px] font-medium leading-[1.5] text-[#7e7e7b]">
-                  주·월간 단위 개인화 통계와 패턴 분석을 통해 자발적이고
-                  지속적인 변화를 느껴보세요.
+                  {t("features.dashboard.desc")}
                 </div>
               </div>
             </div>
 
-            <div className="flex h-[200px] flex-col gap-4 rounded-[20px] bg-white p-6">
+            <div className="flex min-h-[200px] flex-col gap-4 rounded-[20px] bg-white p-6">
               <img
                 alt=""
                 className="size-10 object-contain"
@@ -223,11 +215,10 @@ export function FeaturesAndFaqSection() {
               />
               <div className="flex flex-col gap-3">
                 <div className="text-[18px] font-bold leading-[1.5] text-[#2c2c2c]">
-                  스마트 알림
+                  {t("features.alert.title")}
                 </div>
                 <div className="text-[14px] font-medium leading-[1.5] text-[#7e7e7b]">
-                  자세가 심하게 나빠지거나 스트레칭이 필요한 순간을 정확하게
-                  포착해서 똑똑하게 알려드려요.
+                  {t("features.alert.desc")}
                 </div>
               </div>
             </div>

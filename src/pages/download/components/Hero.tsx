@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
 
 import { Button, TextField } from "@gbgr/ui";
+import { useTranslation } from "react-i18next";
 
 import { assets } from "../assets";
 import { responsive } from "../responsive";
@@ -99,6 +100,7 @@ const landingDownloadEndpoint = apiBaseUrl
   : "/landing/download";
 
 function EmailForm({ className }: EmailFormProps) {
+  const { t } = useTranslation();
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">(
     "idle",
@@ -114,7 +116,7 @@ function EmailForm({ className }: EmailFormProps) {
     const trimmed = email.trim();
     if (!isLikelyEmail(trimmed)) {
       setStatus("error");
-      setMessage("이메일 형식을 확인해 주세요.");
+      setMessage(t("hero.emailInvalid"));
       return;
     }
 
@@ -140,22 +142,22 @@ function EmailForm({ className }: EmailFormProps) {
       }
 
       if (!response.ok || data?.success === false) {
-        throw new Error(data?.message || "전송에 실패했어요. 잠시 후 다시 시도해 주세요.");
+        throw new Error(data?.message || t("hero.emailError"));
       }
 
       setStatus("sent");
-      setMessage(data?.message || "다운로드 링크를 이메일로 전송했어요.");
+      setMessage(data?.message || t("hero.emailSent"));
       trackEmailSubmit('success');
     } catch (error) {
       setStatus("error");
       setMessage(
         error instanceof Error
           ? error.message
-          : "전송에 실패했어요. 잠시 후 다시 시도해 주세요.",
+          : t("hero.emailError"),
       );
       trackEmailSubmit('error');
     }
-  }, [email]);
+  }, [email, t]);
 
   return (
     <div className={["flex flex-col gap-2", className].filter(Boolean).join(" ")}>
@@ -169,7 +171,7 @@ function EmailForm({ className }: EmailFormProps) {
             setMessage("");
           }
         }}
-        placeholder="geoboogirin@gmail.com"
+        placeholder={t("hero.emailPlaceholder")}
         type="email"
         value={email}
       />
@@ -179,7 +181,7 @@ function EmailForm({ className }: EmailFormProps) {
         type="button"
         onPress={onSend}
       >
-        {status === "sending" ? "전송 중..." : "이메일 전송"}
+        {status === "sending" ? t("hero.emailSending") : t("hero.emailSend")}
       </Button>
       {message ? (
         <p
@@ -196,6 +198,7 @@ function EmailForm({ className }: EmailFormProps) {
 }
 
 export function Hero() {
+  const { t } = useTranslation();
   const [downloadLinks, setDownloadLinks] = useState<DownloadLinks>(fallbackDownloadLinks);
 
   useEffect(() => {
@@ -250,12 +253,14 @@ export function Hero() {
           <div className="flex flex-col items-center gap-3 text-center">
             <img alt="" className="size-20" src={assets.hero.appLogo} />
             <h1 className="text-[44px] font-extrabold leading-[1.2] tracking-[-0.02em] text-[#212121] sm:text-[58px] sm:leading-[1.6]">
-              거부기린 다운로드
+              {t("hero.title")}
             </h1>
             <p className="text-[18px] font-semibold leading-[1.5] text-[#6a6966] sm:text-[20px]">
-              <span className="block">실시간 거북목 측정과 피드백을 통해</span>
               <span className="block">
-                자세 변화를 즉시 인지하고 교정할 수 있어요.
+                {t("hero.subtitle1")}
+              </span>
+              <span className="block">
+                {t("hero.subtitle2")}
               </span>
             </p>
           </div>
@@ -270,7 +275,7 @@ export function Hero() {
                 onMouseDown={() => trackDownload('macos')}
               >
                 <img alt="" className="size-6" src={assets.hero.iconApple} />
-                macOS용 다운로드
+                {t("hero.macDownload")}
               </a>
               <a
                 className="inline-flex items-center gap-2 rounded-full bg-[#ffcb31] px-6 py-3 text-[18px] font-medium text-black"
@@ -280,7 +285,7 @@ export function Hero() {
                 onMouseDown={() => trackDownload('windows')}
               >
                 <img alt="" className="size-6" src={assets.hero.iconWindows} />
-                Window용 다운로드
+                {t("hero.windowsDownload")}
               </a>
             </div>
             <a
@@ -290,14 +295,14 @@ export function Hero() {
               target="_blank"
               onMouseDown={() => trackDownload('macos_intel')}
             >
-              Intel 기반 macOS용 다운로드
+              {t("hero.intelDownload")}
             </a>
           </div>
         </div>
 
         <div className="mx-auto mt-10 w-full max-w-[1320px] px-6 pb-[96px]">
           <img
-            alt="거부기린 서비스 화면"
+            alt={t("hero.altServiceScreen")}
             className="w-full drop-shadow-[0_18px_36px_rgba(0,0,0,0.22)]"
             src={assets.hero.mock}
           />
@@ -315,14 +320,14 @@ export function Hero() {
             <img alt="" className="size-20" src={assets.hero.appLogo} />
             <div className="flex flex-col items-center gap-2">
               <h1 className="text-[36px] font-extrabold leading-[1.5] tracking-[-0.02em] text-[#212121]">
-                거부기린 다운로드
+                {t("hero.title")}
               </h1>
               <p className="text-[16px] font-medium leading-[1.5] text-[#6a6966]">
                 <span className="block">
-                  실시간 거북목 측정과 피드백을 통해
+                  {t("hero.subtitle1")}
                 </span>
                 <span className="block">
-                  자세 변화를 즉시 인지하고 교정할 수 있어요.
+                  {t("hero.subtitle2")}
                 </span>
               </p>
             </div>
@@ -331,9 +336,9 @@ export function Hero() {
           <div className="w-full max-w-[360px]">
             <EmailForm />
             <p className="mt-4 text-[10px] font-medium leading-[1.5] text-[#7e7e7b]">
-              <span className="block">거부기린은 PC에서만 사용 가능해요.</span>
+              <span className="block">{t("hero.pcOnly1")}</span>
               <span className="block">
-                이메일을 입력해주시면 링크와 함께 알림을 보내드려요.
+                {t("hero.pcOnly2")}
               </span>
             </p>
           </div>
@@ -342,7 +347,7 @@ export function Hero() {
         <div className=" ">
           <div className="mx-auto max-w-[760px] px-4 pb-[24px] pt-[24px]">
             <img
-              alt="거부기린 서비스 화면"
+              alt={t("hero.altServiceScreen")}
               className="w-full drop-shadow-[0_18px_36px_rgba(0,0,0,0.22)]"
               src={assets.hero.tabletMock}
             />
@@ -356,19 +361,19 @@ export function Hero() {
           responsive.showOnlyMobile,
         ].join(" ")}
       >
-        <div className="mx-auto flex max-w-[320px] flex-col items-center gap-[40px] px-4 text-center">
+        <div className="mx-auto flex max-w-[320px] min-w-0 flex-col items-center gap-[40px] overflow-hidden px-4 text-center">
           <div className="flex flex-col items-center gap-3">
             <img alt="" className="size-20" src={assets.hero.appLogo} />
             <div className="flex flex-col items-center gap-2">
               <h1 className="text-[24px] font-extrabold leading-[1.5] tracking-[-0.02em] text-[#212121]">
-                거부기린 다운로드
+                {t("hero.title")}
               </h1>
               <p className="text-[14px] font-medium leading-[1.5] text-[#6a6966]">
                 <span className="block">
-                  실시간 거북목 측정과 피드백을 통해
+                  {t("hero.subtitle1")}
                 </span>
                 <span className="block">
-                  자세 변화를 즉시 인지하고 교정할 수 있어요.
+                  {t("hero.subtitle2")}
                 </span>
               </p>
             </div>
@@ -377,9 +382,9 @@ export function Hero() {
           <div className="w-full">
             <EmailForm />
             <p className="mt-4 text-[10px] font-medium leading-[1.5] text-[#7e7e7b]">
-              <span className="block">거부기린은 PC에서만 사용 가능해요.</span>
+              <span className="block">{t("hero.pcOnly1")}</span>
               <span className="block">
-                이메일을 입력해주시면 링크와 함께 알림을 보내드려요.
+                {t("hero.pcOnly2")}
               </span>
             </p>
           </div>
@@ -388,7 +393,7 @@ export function Hero() {
         <div className="">
           <div className="mx-auto max-w-[360px] px-4 pb-[24px] pb-[133px]">
             <img
-              alt="거부기린 서비스 화면"
+              alt={t("hero.altServiceScreen")}
               className="w-full drop-shadow-[0_18px_36px_rgba(0,0,0,0.22)]"
               src={assets.hero.mobileMock}
             />

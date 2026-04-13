@@ -1,9 +1,12 @@
 import { useCallback } from "react";
+import { useTranslation } from "react-i18next";
+
 import { assets } from "../assets";
 import { responsive } from "../responsive";
 import { trackCtaClick } from "../../../utils/analytics";
 
 export function Cta() {
+  const { t } = useTranslation();
   const trialHref = "http://demo.bugi.co.kr/";
 
   const handleTrialClick = useCallback(() => {
@@ -30,10 +33,11 @@ export function Cta() {
         <div className="relative flex flex-col items-center gap-[60px] px-6 text-center">
           <div className="flex flex-col items-center gap-[10px]">
             <div className="text-[32px] font-bold leading-[1.2] text-[#212121] sm:text-[40px] sm:leading-[1.6]">
-              세상 모든 거북목들이 기린이 될 때까지
+              <span className="block">{t("cta.title1")}</span>
+              <span className="block">{t("cta.title2")}</span>
             </div>
             <div className="text-[18px] font-semibold leading-[1.6] text-[#6a6966] sm:text-[20px]">
-              거부기린이 궁금하다면?
+              {t("cta.subtitle")}
             </div>
           </div>
 
@@ -44,7 +48,7 @@ export function Cta() {
             target="_blank"
             onClick={handleTrialClick}
           >
-            다운로드 없이 체험해보기
+            {t("cta.button")}
           </a>
         </div>
       </section>
@@ -65,11 +69,11 @@ export function Cta() {
           <div className="relative flex w-full flex-col items-center gap-[30px] px-4 text-center">
             <div className="flex flex-col items-center gap-[10px]">
               <div className="text-[22px] font-bold leading-[1.5] text-[#212121]">
-                <div>세상 모든 거북목들이</div>
-                <div>기린이 될 때까지</div>
+                <div>{t("cta.title1")}</div>
+                <div>{t("cta.title2")}</div>
               </div>
               <div className="text-[14px] font-medium leading-[1.5] text-[#6a6966]">
-                거부기린이 궁금하다면?
+                {t("cta.subtitle")}
               </div>
             </div>
             <a
@@ -79,7 +83,7 @@ export function Cta() {
               target="_blank"
               onClick={handleTrialClick}
             >
-              다운로드 없이 체험해보기
+              {t("cta.button")}
             </a>
           </div>
         </div>
@@ -100,11 +104,11 @@ export function Cta() {
         <div className="absolute inset-0 flex items-center justify-center">
           <div className="relative flex w-full flex-col items-center px-4 text-center">
             <div className="text-[22px] font-bold leading-[1.5] text-[#212121]">
-              <div>세상 모든 거북목들이</div>
-              <div>기린이 될 때까지</div>
+              <div>{t("cta.title1")}</div>
+              <div>{t("cta.title2")}</div>
             </div>
             <div className="mt-[10px] text-[14px] font-medium leading-[1.5] text-[#6a6966]">
-              거부기린이 궁금하다면?
+              {t("cta.subtitle")}
             </div>
           </div>
         </div>

@@ -2,6 +2,7 @@ import { useCallback, useEffect, useState } from "react";
 
 import { ModeToggle } from "@gbgr/ui";
 import type { ModeToggleValue } from "@gbgr/ui";
+import { useTranslation } from "react-i18next";
 
 import { assets } from "../assets";
 import { responsive } from "../responsive";
@@ -14,13 +15,38 @@ type GnbProps = {
   modeAriaLabel?: string;
 };
 
+function LangToggle() {
+  const { i18n } = useTranslation();
+  const isKo = i18n.language === "ko";
+
+  const toggleLang = useCallback(() => {
+    i18n.changeLanguage(isKo ? "en" : "ko");
+  }, [i18n, isKo]);
+
+  return (
+    <button
+      className="rounded-full border border-[#e3e1df] px-2.5 py-1 text-[12px] font-semibold text-[#7e7e7b] hover:bg-[#f9f8f7] cursor-pointer"
+      onClick={toggleLang}
+      type="button"
+    >
+      {isKo ? "EN" : "KO"}
+    </button>
+  );
+}
+
 export function Gnb({ modeValue, onModeValueChange, modeAriaLabel }: GnbProps) {
-  const navItems = ["다운로드", "업데이트 소식", "요금제", "블로그"] as const;
-  const navLinks: Partial<
-    Record<(typeof navItems)[number], { href: string; external?: boolean }>
-  > = {
-    블로그: { href: "https://blog.bugi.co.kr/", external: true },
+  const { t } = useTranslation();
+  const navItems = [
+    { label: t("gnb.download"), key: "download" },
+    { label: t("gnb.update"), key: "update" },
+    { label: t("gnb.pricing"), key: "pricing" },
+    { label: t("gnb.blog"), key: "blog" },
+  ] as const;
+
+  const navLinks: Record<string, { href: string; external?: boolean }> = {
+    blog: { href: "https://blog.bugi.co.kr/", external: true },
   };
+
   const trialHref = "http://demo.bugi.co.kr/";
   const [isDrawerVisible, setIsDrawerVisible] = useState(false);
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
@@ -67,24 +93,25 @@ export function Gnb({ modeValue, onModeValueChange, modeAriaLabel }: GnbProps) {
           </a>
 
           <nav className="hidden items-center gap-3 text-[15px] font-medium text-[#7e7e7b] md:flex">
-            {navItems.map((label) => {
-              const link = navLinks[label];
+            {navItems.map((item) => {
+              const link = navLinks[item.key];
               const href = link?.href ?? "#";
               const external = Boolean(link?.external);
               return (
                 <a
                   className="rounded-full px-3 py-2 hover:bg-[#f9f8f7]"
                   href={href}
-                  key={label}
+                  key={item.key}
                   {...(external ? { rel: "noreferrer", target: "_blank" } : {})}
                 >
-                  {label}
+                  {item.label}
                 </a>
               );
             })}
           </nav>
 
           <div className="flex items-center gap-4">
+            <LangToggle />
             <ModeToggle
               aria-label={modeAriaLabel}
               onValueChange={onModeValueChange}
@@ -96,7 +123,7 @@ export function Gnb({ modeValue, onModeValueChange, modeAriaLabel }: GnbProps) {
               rel="noreferrer"
               target="_blank"
             >
-              거부기린 실행
+              {t("gnb.runApp")}
             </a>
           </div>
         </div>
@@ -113,20 +140,23 @@ export function Gnb({ modeValue, onModeValueChange, modeAriaLabel }: GnbProps) {
             <img alt="거부기린" className="size-6" src={Logo} />
             <img alt="" className="h-[15px] w-auto" src={TextLogo} />
           </a>
-          <button
-            aria-controls="navigation-drawer"
-            aria-expanded={isDrawerOpen}
-            aria-label="메뉴 열기"
-            className="grid size-9 place-items-center"
-            onClick={openDrawer}
-            type="button"
-          >
-            <img
-              alt=""
-              className="h-[33px] w-6"
-              src={assets.gnb.iconMenuTablet}
-            />
-          </button>
+          <div className="flex items-center gap-3">
+            <LangToggle />
+            <button
+              aria-controls="navigation-drawer"
+              aria-expanded={isDrawerOpen}
+              aria-label={t("gnb.openMenu")}
+              className="grid size-9 place-items-center"
+              onClick={openDrawer}
+              type="button"
+            >
+              <img
+                alt=""
+                className="h-[33px] w-6"
+                src={assets.gnb.iconMenuTablet}
+              />
+            </button>
+          </div>
         </div>
       </header>
 
@@ -141,27 +171,30 @@ export function Gnb({ modeValue, onModeValueChange, modeAriaLabel }: GnbProps) {
             <img alt="거부기린" className="size-6" src={Logo} />
             <img alt="" className="h-[15px] w-auto" src={TextLogo} />
           </a>
-          <button
-            aria-controls="navigation-drawer"
-            aria-expanded={isDrawerOpen}
-            aria-label="메뉴 열기"
-            className="grid size-9 place-items-center"
-            onClick={openDrawer}
-            type="button"
-          >
-            <img
-              alt=""
-              className="h-[33px] w-6"
-              src={assets.gnb.iconMenuMobile}
-            />
-          </button>
+          <div className="flex items-center gap-3">
+            <LangToggle />
+            <button
+              aria-controls="navigation-drawer"
+              aria-expanded={isDrawerOpen}
+              aria-label={t("gnb.openMenu")}
+              className="grid size-9 place-items-center"
+              onClick={openDrawer}
+              type="button"
+            >
+              <img
+                alt=""
+                className="h-[33px] w-6"
+                src={assets.gnb.iconMenuMobile}
+              />
+            </button>
+          </div>
         </div>
       </header>
 
       {isDrawerVisible ? (
         <div className="fixed inset-0 z-[60]">
           <button
-            aria-label="메뉴 닫기"
+            aria-label={t("gnb.closeMenu")}
             className={[
               "absolute inset-0 bg-[rgba(0,0,0,0.4)] transition-opacity duration-200 ease-out",
               isDrawerOpen ? "opacity-80" : "opacity-0",
@@ -188,7 +221,7 @@ export function Gnb({ modeValue, onModeValueChange, modeAriaLabel }: GnbProps) {
                     <img alt="" className="h-[15px] w-auto" src={TextLogo} />
                   </a>
                   <button
-                    aria-label="메뉴 닫기"
+                    aria-label={t("gnb.closeMenu")}
                     className="grid size-6 place-items-center"
                     onClick={closeDrawer}
                     type="button"
@@ -198,32 +231,35 @@ export function Gnb({ modeValue, onModeValueChange, modeAriaLabel }: GnbProps) {
                 </div>
 
                 <nav className="flex w-full flex-col gap-1">
-                  {navItems.map((label) => {
-                    const link = navLinks[label];
+                  {navItems.map((item) => {
+                    const link = navLinks[item.key];
                     const href = link?.href ?? "#";
                     const external = Boolean(link?.external);
                     return (
                       <a
                         className="py-2 text-[16px] font-medium leading-[1.5] text-[#7e7e7b]"
                         href={href}
-                        key={label}
+                        key={item.key}
                         onClick={closeDrawer}
                         {...(external
                           ? { rel: "noreferrer", target: "_blank" }
                           : {})}
                       >
-                        {label}
+                        {item.label}
                       </a>
                     );
                   })}
                 </nav>
               </div>
 
-              <ModeToggle
-                aria-label={modeAriaLabel}
-                onValueChange={onModeValueChange}
-                value={modeValue}
-              />
+              <div className="flex items-center gap-4">
+                <LangToggle />
+                <ModeToggle
+                  aria-label={modeAriaLabel}
+                  onValueChange={onModeValueChange}
+                  value={modeValue}
+                />
+              </div>
             </div>
           </aside>
         </div>
